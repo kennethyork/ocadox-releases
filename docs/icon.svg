@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0a0c10"/><text x="27" y="47" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-weight="700" font-size="42" fill="#e7ebf1">o</text><circle cx="49" cy="43" r="5" fill="#5eead4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="glow" cx="70%" cy="22%" r="80%">
+      <stop offset="0" stop-color="#16302d"/>
+      <stop offset="1" stop-color="#0a0c10"/>
+    </radialGradient>
+  </defs>
+  <!-- Rounded tile, like the app's cards. -->
+  <rect x="64" y="64" width="896" height="896" rx="208" fill="url(#glow)"/>
+  <rect x="64" y="64" width="896" height="896" rx="208" fill="none" stroke="#2a6f66" stroke-width="10" opacity=".55"/>
+  <!-- The "o" of ocadox. -->
+  <circle cx="450" cy="540" r="210" fill="none" stroke="#5eead4" stroke-width="96"/>
+  <!-- And its period. -->
+  <circle cx="750" cy="712" r="64" fill="#5eead4"/>
+</svg>

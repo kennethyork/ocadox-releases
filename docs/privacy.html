@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocadox privacy</title>
+<meta name="description" content="What Ocadox keeps on your computer, and the few times it talks to the internet.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+:root{--bg:#0a0c10;--card:#11141a;--line:#232a34;--text:#e7ebf1;--muted:#8b95a5;--accent:#5eead4;--radius:14px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{font-weight:700;font-size:1.15rem;color:var(--text);text-decoration:none}
+.brand span{color:var(--accent)}
+main{padding:48px 0 64px}
+h1{font-size:clamp(1.8rem,5vw,2.4rem);line-height:1.2;margin:0 0 .4em}
+h2{font-size:1.2rem;margin:2em 0 .5em}
+p,li{color:var(--muted)}
+strong{color:var(--text)}
+.lead{font-size:1.1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;margin:18px 0}
+.card p{margin:0}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+th,td{padding:10px 14px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{border-top:0;background:#141922}
+td:first-child{color:var(--text);white-space:nowrap}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./">ocadox<span>.</span></a><a href="./">Back to the site</a></nav></header>
+<main class="wrap">
+  <h1>Privacy</h1>
+  <p class="lead">Ocadox is built to keep your work on your computer. It has no accounts, no analytics and no tracking, and it does not send your prompts, files, chats or voice anywhere.</p>
+  <p><small>Last updated October 9, 2026.</small></p>
+
+  <div class="card"><p><strong>In short:</strong> models run on your machine through Ollama, speech is turned into text on your machine with Whisper, and your chats, bots and settings are files in your user folder. Ocadox only goes online for the specific things listed below, most of which you start yourself.</p></div>
+
+  <h2>What stays on your computer</h2>
+  <ul>
+    <li>Your chats, bots and their transcripts, routines, settings and checkpoints.</li>
+    <li>Everything the agent reads or changes in the project folder you give it.</li>
+    <li>Your voice: the microphone is recorded and transcribed locally, and the recording is not kept.</li>
+    <li>Energy and temperature history, and crash logs.</li>
+  </ul>
+
+  <h2>When Ocadox goes online</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">For</th><th scope="col">Talks to</th><th scope="col">What is sent</th></tr></thead>
+      <tbody>
+        <tr><td>Running models</td><td>Ollama on your computer, or an Ollama server you choose</td><td>Your prompts go to that Ollama only.</td></tr>
+        <tr><td>Downloading models</td><td>ollama.com, Hugging Face</td><td>The name of the model you asked for. Only when you download one.</td></tr>
+        <tr><td>Speech models</td><td>Hugging Face (whisper.cpp)</td><td>Which speech model to download. Only when you download one.</td></tr>
+        <tr><td>Updates</td><td>GitHub (ocadox-releases)</td><td>A check for a newer version. GitHub sees your IP address, as with any download.</td></tr>
+        <tr><td>Ocadox Pro</td><td>Gumroad</td><td>Your license key, when you activate it and about once a month after, to check it was not refunded. Pro keeps working offline.</td></tr>
+        <tr><td>Web tools (off by default)</td><td>DuckDuckGo and the pages the agent opens</td><td>The agent's searches and page requests, only if you turn web access on.</td></tr>
+        <tr><td>Things you connect</td><td>Your Forge image server, MCP tool servers, your other computers</td><td>Only what that feature needs, only to addresses you set up.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Your other computers</h2>
+  <p>With Ocadox Pro, a laptop can use an always-on PC's bots. The two talk directly (over your network or Tailscale), encrypted, after you pair them with a one-time code. Nothing passes through any server of ours; there isn't one.</p>
+
+  <h2>Buying Ocadox Pro</h2>
+  <p>Checkout is handled by Gumroad, which processes your payment and email under <a href="https://gumroad.com/privacy">Gumroad's privacy policy</a>. Ocadox itself only stores your license key, on your computer.</p>
+
+  <h2>Bug reports</h2>
+  <p>"Send feedback" copies details (Ocadox version, system, GPU, and a crash report if there is one) to your clipboard and opens a GitHub issue. Nothing is sent unless you paste it and submit it yourself, so you can read or trim it first.</p>
+
+  <h2>This website</h2>
+  <p>This site is hosted on GitHub Pages. It sets no cookies and has no analytics. GitHub may keep server logs, such as IP addresses, under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+
+  <h2>Questions</h2>
+  <p>Open an issue at <a href="https://github.com/kennethyork/ocadox-releases/issues/new">github.com/kennethyork/ocadox-releases</a>.</p>
+</main>
+<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a></div></footer>
+</body>
+</html>
