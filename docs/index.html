@@ -67,6 +67,21 @@ p{margin:0 0 1em}
 .event em{font-style:normal;color:var(--muted);margin-left:auto;font-size:.85rem}
 .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 4px rgba(56,189,248,.15)}
 .check{color:var(--accent);font-weight:700}
+.roster{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+.bot > div{flex:1;min-width:0}
+.bot{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.bot svg{flex:none;width:36px;height:36px}
+.bot b{display:block;font-size:.98rem}
+.bot span{display:block;color:var(--muted);font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bot .on{color:var(--accent)}
+.bot .wait{color:#fbbf24}
+.bot time{margin-left:auto;color:var(--muted);font-size:.8rem;white-space:nowrap}
+.bot.working svg{animation:hop .6s ease-in-out infinite alternate}
+@keyframes hop{from{transform:translateY(1px)}to{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.bot.working svg{animation:none}}
+.bots-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+@media (max-width:860px){.bots-grid{grid-template-columns:minmax(0,1fr)}}
+.stack{display:grid;gap:14px}
 .grid{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:900px){.grid,.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -115,6 +130,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <ul>
       <li><a href="#how">How it works</a></li>
       <li><a href="#features">Features</a></li>
+      <li><a href="#bots">Bots</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -203,6 +219,34 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   </div>
 </section>
 
+<section id="bots" aria-labelledby="bots-title">
+  <div class="wrap">
+    <h2 id="bots-title">Bots that keep working</h2>
+    <p class="lead">A bot is an agent you come back to: its own name and face, chat, project folder, model and instructions. Give it a job and close the window; it keeps going, and its result is waiting when you look again.</p>
+    <div class="bots-grid">
+      <div class="roster" role="img" aria-label="Three bots: Pip is running the tests, Nova is waiting for approval, Juniper finished its morning routine.">
+        <div class="card bot working">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="#5eead4"/><circle cx="14.5" cy="18" r="2.7" fill="#0a0c10"/><circle cx="25.5" cy="18" r="2.7" fill="#0a0c10"/></svg>
+          <div><b>Pip</b><span class="on">Working: shell run npm test</span></div><time>now</time>
+        </div>
+        <div class="card bot">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="12" fill="#f472b6"/><ellipse cx="14.5" cy="18" rx="3.6" ry="4.4" fill="#fff"/><ellipse cx="25.5" cy="18" rx="3.6" ry="4.4" fill="#fff"/><circle cx="15" cy="18.6" r="1.9" fill="#0a0c10"/><circle cx="26" cy="18.6" r="1.9" fill="#0a0c10"/></svg>
+          <div><b>Nova</b><span class="wait">Waiting for you: approve git commit</span></div><time>2 min</time>
+        </div>
+        <div class="card bot">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><polygon points="20,2.5 35.5,11.3 35.5,28.7 20,37.5 4.5,28.7 4.5,11.3" fill="#fbbf24"/><g fill="none" stroke="#0a0c10" stroke-width="2.2" stroke-linecap="round"><path d="M11.5 19.5q3-4.2 6 0"/><path d="M22.5 19.5q3-4.2 6 0"/></g></svg>
+          <div><b>Juniper</b><span>Morning check: all 12 tests pass, 2 dependencies updated</span></div><time>8:04 AM</time>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="card"><h3>Bots <span class="tag">Free</span></h3><p>As many as you like, each with its own chat, folder and model. Their avatars show what they are doing, and they take turns on the GPU so it stays quiet.</p></div>
+        <div class="card"><h3>Routines and always on <span class="tag">Pro</span></h3><p>Schedule a bot: every weekday at 8:00, run the tests and tell me what broke. Ocadox starts with Windows in the tray, keeps the PC awake while a bot works, and can wake it from sleep for a routine.</p></div>
+        <div class="card"><h3>Other computers <span class="tag">Pro</span></h3><p>Keep your bots on an always-on PC and use them from your laptop, at home or away (with Tailscale). Paired with a one-time code, encrypted, and the laptop can be off while they work.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="compare" aria-labelledby="compare-title">
   <div class="wrap">
     <h2 id="compare-title">Free vs Pro</h2>
@@ -216,6 +260,10 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <tr><th scope="row">Model downloads (Ollama + Hugging Face GGUF)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Fan guard and GPU power cap</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Saved chats and chat search</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Bots: agents with their own chat, folder and model</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Bot routines (scheduled tasks, can wake the PC)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Always on: start with Windows, in the tray</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Use an always-on PC&apos;s bots from your laptop</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Checkpoints with one-click undo, per-file diff review</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Agent branches (own git worktree, merge or discard)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Quiet benchmark (energy per token, peak temp, fan, speed)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
@@ -244,6 +292,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <li>Chat and the full coding agent</li>
           <li>Fan guard and power cap</li>
           <li>Model downloads, saved chats, search</li>
+          <li>Bots with their own chats and folders</li>
         </ul>
         <a class="btn" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a>
       </div>
@@ -252,6 +301,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
         <p class="price">$79</p>
         <ul>
           <li>One-time purchase, lifetime license</li>
+          <li>Bot routines, always on, and using your bots from other computers</li>
           <li>Every Pro feature in the table above</li>
           <li>Use it on up to 3 of your computers</li>
           <li>Works offline after activation</li>
@@ -294,7 +344,15 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     </details>
     <details>
       <summary>Is it really free?</summary>
-      <p>Yes. Chat, the full coding agent with every tool, model downloads, the fan guard, the power cap, saved chats and search are all free, with no time limit. Ocadox Pro is an optional one-time purchase for extra features.</p>
+      <p>Yes. Chat, the full coding agent with every tool, bots, model downloads, the fan guard, the power cap, saved chats and search are all free, with no time limit. Ocadox Pro is an optional one-time purchase for extra features.</p>
+    </details>
+    <details>
+      <summary>Can bots keep working while I&apos;m away?</summary>
+      <p>Yes, while the PC is on. A bot keeps going with the window closed, and with Pro, Ocadox starts with Windows in the tray and runs each bot&apos;s routines on schedule, waking the PC from sleep if you ask it to. For bots that work while your laptop is off, keep them on an always-on PC (an old desktop or a mini PC is plenty) and connect from the laptop. Nothing runs while a PC is shut down.</p>
+    </details>
+    <details>
+      <summary>Is connecting to my other PC safe?</summary>
+      <p>The laptop pairs with a one-time code shown on the PC. The code also carries the PC&apos;s identity, so the laptop only ever talks to that PC, and the connection is encrypted. A paired laptop can only use the bots, and you can remove it at any time. Away from home, Tailscale (free) connects the two without opening ports on your router.</p>
     </details>
   </div>
 </section>
