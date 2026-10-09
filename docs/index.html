@@ -67,7 +67,10 @@ p{margin:0 0 1em}
 .event em{font-style:normal;color:var(--muted);margin-left:auto;font-size:.85rem}
 .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 4px rgba(56,189,248,.15)}
 .check{color:var(--accent);font-weight:700}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.grid,.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid,.grid.four{grid-template-columns:minmax(0,1fr)}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
 .card p{color:var(--muted);margin:0}
 .steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
@@ -265,7 +268,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   <div class="wrap">
     <h2 id="privacy-title">Your code stays on your machine</h2>
     <p class="lead">Ocadox talks to Ollama on your own computer (or, with Pro, an Ollama server on your own network). Your prompts, files, and chats are not sent to a cloud service.</p>
-    <div class="grid">
+    <div class="grid four">
       <div class="card"><h3>No cloud model</h3><p>Every model runs locally through Ollama.</p></div>
       <div class="card"><h3>Web is opt-in</h3><p>Web browsing tools only run when you turn them on.</p></div>
       <div class="card"><h3>You approve commands</h3><p>The agent asks before running shell commands.</p></div>
