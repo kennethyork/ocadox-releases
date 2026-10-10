@@ -56,10 +56,10 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <table>
       <thead><tr><th scope="col">For</th><th scope="col">Talks to</th><th scope="col">What is sent</th></tr></thead>
       <tbody>
-        <tr><td>Running models</td><td>Ollama on your computer, or an Ollama server you choose</td><td>Your prompts go to that Ollama only.</td></tr>
+        <tr><td>Running models</td><td>Ollama on your computer, or an Ollama server you choose</td><td>Your prompts go to that Ollama only. If you choose one of Ollama's cloud models (marked CLOUD in Ocadox), Ollama sends your prompts and the files the agent reads to its servers. Settings can hide cloud models.</td></tr>
         <tr><td>Downloading models</td><td>ollama.com, Hugging Face</td><td>The name of the model you asked for. Only when you download one.</td></tr>
         <tr><td>Speech models</td><td>Hugging Face (whisper.cpp)</td><td>Which speech model to download. Only when you download one.</td></tr>
-        <tr><td>Updates</td><td>GitHub (ocadox-releases)</td><td>A check for a newer version. GitHub sees your IP address, as with any download.</td></tr>
+        <tr><td>Updates</td><td>GitHub (ocadox-releases)</td><td>A check for a newer version (the Android app checks each time it opens). GitHub sees your IP address, as with any download.</td></tr>
         <tr><td>Ocadox Pro</td><td>Gumroad</td><td>Your license key, when you activate it and about once a month after, to check it was not refunded. Pro keeps working offline.</td></tr>
         <tr><td>Web tools (off by default)</td><td>DuckDuckGo and the pages the agent opens</td><td>The agent's searches and page requests, only if you turn web access on.</td></tr>
         <tr><td>Things you connect</td><td>Your Forge image server, MCP tool servers, your other computers</td><td>Only what that feature needs, only to addresses you set up.</td></tr>
@@ -68,7 +68,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   </div>
 
   <h2>Your other computers</h2>
-  <p>With Ocadox Pro, a laptop can use an always-on PC's bots. The two talk directly (over your network or Tailscale), encrypted, after you pair them with a one-time code. Nothing passes through any server of ours; there isn't one.</p>
+  <p>With Ocadox Pro, a laptop or the Ocadox Android app can use an always-on PC's bots and chats. They talk directly (over your network or Tailscale), encrypted, after you pair them with a one-time code. Nothing passes through any server of ours; there isn't one.</p>
 
   <h2>Buying Ocadox Pro</h2>
   <p>Checkout is handled by Gumroad, which processes your payment and email under <a href="https://gumroad.com/privacy">Gumroad's privacy policy</a>. Ocadox itself only stores your license key, on your computer.</p>
