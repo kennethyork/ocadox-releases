@@ -214,6 +214,11 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
       <div class="card"><h3>Works in your project</h3><p>Reads, edits and searches files, runs commands with your OK, uses git, and browses the web only if you turn that on. Each chat stays in its folder.</p></div>
       <div class="card"><h3>Any model, in the app</h3><p>Download from the Ollama library or any GGUF on Hugging Face, labelled by whether it fits your GPU.</p></div>
       <div class="card"><h3>Long chats that hold up</h3><p>Older turns are summarised automatically, so the agent keeps track of the task.</p></div>
+      <div class="card"><h3>Helpers, one at a time <span class="tag">New</span></h3><p>The agent hands a question to a helper with a fresh, empty context, which keeps long tasks on track on local models. Helpers run one at a time on the same model, so the fans stay calm.</p></div>
+      <div class="card"><h3>Checks its own work <span class="tag">New</span></h3><p>Before it says it's done, the agent runs your project's check (cargo check, tsc, go build, Python) and fixes what it finds. Set your own with a <code>Check:</code> line in AGENTS.md.</p></div>
+      <div class="card"><h3>Tries your web app <span class="tag">New</span></h3><p>It opens your app in a hidden browser, clicks and types, and reads the page and its console errors, so it can test what it builds.</p></div>
+      <div class="card"><h3>Hooks and project rules</h3><p>Follows AGENTS.md or OCADOX.md. Add <code>After edit: npx prettier --write {file}</code> and it runs after every edit.</p></div>
+      <div class="card"><h3>From the terminal</h3><p><code>ocadox run "fix the failing tests"</code> runs the agent without the window, in a script or a scheduled job.</p></div>
       <div class="card"><h3>Make images, built in <span class="tag">New</span></h3><p>Type <code>/image_create</code> and what you want. Z-Image Turbo runs on your PC, about a minute per image on a good graphics card. One click to set up; no other app to install.</p></div>
       <div class="card"><h3>Talk instead of type</h3><p>Click the microphone and speak. Whisper turns it into text on your PC; nothing is sent anywhere.</p></div>
       <div class="card"><h3>Saved, searchable chats</h3><p>Every conversation is kept on your computer and can be searched.</p></div>
@@ -278,6 +283,8 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <tr><th scope="row">Saved, searchable chats</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Voice dictation (Whisper, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Image creation, built in (Z-Image Turbo, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Helpers, self-checks, hooks, a browser for the agent, the terminal</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Optional cloud models with your own API key</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr class="group"><th scope="rowgroup" colspan="3">Bots</th></tr>
           <tr><th scope="row">Bots with their own chat, folder and model, and templates</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Standing instructions for each bot</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
@@ -340,7 +347,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <h2 id="private-title">Your code stays on your machine</h2>
     <p class="lead">Ocadox has no servers and no account. It talks to Ollama on your own computer, and your devices talk to each other directly.</p>
     <div class="grid four">
-      <div class="card"><h3>Local models</h3><p>Models run on your PC through Ollama. Ollama's optional cloud models are clearly marked, and you can hide them.</p></div>
+      <div class="card"><h3>Local models</h3><p>Models run on your PC through Ollama. Cloud models (Ollama's, or your own API key) are optional, clearly marked, and can be hidden.</p></div>
       <div class="card"><h3>Web is opt-in</h3><p>Web tools only run when you turn them on.</p></div>
       <div class="card"><h3>You approve commands</h3><p>The agent asks before running anything.</p></div>
       <div class="card"><h3>Phone to PC, directly</h3><p>Encrypted, pinned to your PC, nothing in between.</p></div>
@@ -376,6 +383,10 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <details>
       <summary>Which GPUs work?</summary>
       <p>NVIDIA, AMD and Intel, on Windows and Linux. The fan guard reads the GPU temperature on all of them. NVIDIA cards (and AMD on Linux) also show fan, power and load in the live panel; AMD and Intel on Windows show temperature and fan speed. The optional power cap is for NVIDIA cards. No graphics card at all? CPU mode turns on by itself and keeps the processor quiet instead.</p>
+    </details>
+    <details>
+      <summary>Can I use Claude, GPT or other cloud models?</summary>
+      <p>Yes, if you want to, with your own API key (OpenRouter, OpenAI, Anthropic and others) in Settings &gt; Cloud models. It's off until you add a key. Those models are marked CLOUD; when you use one, your messages and the files the agent reads go to that provider, and it bills your account. Everything else stays on your PC.</p>
     </details>
     <details>
       <summary>Can I use Ollama's cloud models?</summary>
