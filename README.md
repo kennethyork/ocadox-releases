@@ -2,7 +2,7 @@
 
 Local AI that keeps your GPU quiet. A desktop app on Ollama with chat and a full coding agent that waits for your GPU to cool between steps, so the fans stay at normal speed.
 
-**Website:** https://kennethyork.github.io/ocadox-releases/
+**Website:** https://www.ocadox.com
 
 **Download:** [latest release](https://github.com/kennethyork/ocadox-releases/releases/latest) for Windows (`-setup.exe` or `.msi`) and Linux (`.AppImage`, `.deb`, `.rpm`). Ocadox updates itself from here.
 
