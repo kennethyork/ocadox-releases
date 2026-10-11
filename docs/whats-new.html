@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocadox: what's new</title>
+<meta name="description" content="Every Ocadox release and what it added: the quiet local AI app for Windows, Linux and Android.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+:root{--bg:#0a0c10;--card:#11141a;--line:#232a34;--text:#e7ebf1;--muted:#8b95a5;--accent:#5eead4;--radius:14px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.15rem;color:var(--text);text-decoration:none}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:18px}
+main{padding:48px 0 64px}
+h1{font-size:clamp(1.8rem,5vw,2.4rem);line-height:1.2;margin:0 0 .4em}
+.lead{font-size:1.1rem;color:var(--muted)}
+.release{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;margin:18px 0}
+.release h2{font-size:1.25rem;margin:0 0 .3em}
+.date{font-size:.9rem;font-weight:400;color:var(--muted);margin-left:8px}
+.release ul{margin:0;padding-left:1.2em}
+li{color:var(--muted);margin:.35em 0}
+code{background:#1a2029;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.9em;color:var(--text)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./">ocadox<span>.</span></a><span class="links"><a href="help.html">Help</a><a href="./">Back to the site</a></span></nav></header>
+<main class="wrap">
+  <h1>What's new</h1>
+  <p class="lead">Every release, newest first. Ocadox updates itself: you get each one from inside the app. <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download the latest</a>.</p>
+  <section class="release">
+    <h2>0.6.5 <span class="date">October 11, 2026</span></h2>
+    <ul>
+      <li>Your quiet week: how long Ocadox worked in the last 7 days and how quiet your PC stayed, as a card you can share (in the thermals panel, and offered once a week).</li>
+      <li>Bots that react: a routine can now run when files change in the bot's folder (or only *.py and the like), or after a new commit. A bot's own edits never set it off.</li>
+      <li>Share bots as files: Share as a file in the bot editor, From a file when making one. No folders or chats go in the file, and shared routines start switched off.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.6.4 <span class="date">October 11, 2026</span></h2>
+    <ul>
+      <li>Helpers: the agent can hand a question to a helper with a fresh, empty context, which keeps long tasks on track with local models. One at a time, on the same model, under the same fan guard: the fans stay calm.</li>
+      <li>Before finishing, the agent checks its own changes with the project's check (cargo check, tsc, go build, Python), or a <code>Check:</code> line in <code>AGENTS.md</code>, and fixes what it finds.</li>
+      <li>Hooks: an <code>After edit:</code> line in <code>AGENTS.md</code> or <code>OCADOX.md</code> (say, npx prettier --write {file}) runs after every edit.</li>
+      <li>A browser for the agent: it can open your web app (in Chrome or Edge, hidden), click, type, and read the page and its console errors.</li>
+      <li>From a terminal: <code>ocadox run</code> &quot;fix the failing tests&quot; --folder path.</li>
+      <li>Optional cloud models with your own key (OpenRouter, OpenAI, Anthropic and others), off until you add one in Settings, marked CLOUD.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.6.3 <span class="date">October 11, 2026</span></h2>
+    <ul>
+      <li>Send feedback now includes a problem report (system, graphics, memory, CPU mode, Ollama and the loaded models, the last errors), with no names, folders or chats. You see it before sending.</li>
+      <li>PCs without a graphics card: the model library says which models fit this PC's memory and which would freeze it, and first-run setup suggests a small one.</li>
+      <li>Linux: a steadier window on some graphics drivers.</li>
+      <li>Android app: notifications when a bot finishes or needs your OK even with the app closed (a quiet notification keeps it watching; switch it off on the computers screen), Update installs a new version from inside the app, and images from the full app can be saved to the phone.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.6.2 <span class="date">October 11, 2026</span></h2>
+    <ul>
+      <li>PCs without a graphics card no longer freeze while a model answers: one core is left for the desktop by default, the reply is redrawn a few times a second instead of on every word, and a model too big for the free memory is refused with a message instead of loading.</li>
+      <li>The whole desktop app on your phone: on the PC, turn on Full control for your phone (Settings &gt; Other computers) and the Android app opens the full Ocadox, running on the PC. Folders are chosen on the phone from the PC's own.</li>
+      <li>Android app: a PC that can't be reached says so, with the reason and Try again, instead of an empty list. Lists and chats show Loading, and a message you send appears at once.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.6.1 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Image creation, built in: Settings &gt; Image creation downloads an image engine and the Z-Image Turbo model once (6.7 GB, every file checked). Then type <code>/image_create</code> and what you want. Works on NVIDIA, AMD and Intel graphics, or slowly on the processor, with the fan guard and power cap.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.6.0 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>CPU mode, for PCs without a graphics card that can hold a model (office desktops, built-in Intel or AMD graphics). It turns on by itself when Ollama runs the model on the processor: a smaller context window and no hidden thinking, so replies start sooner.</li>
+      <li>Quiet on the processor too: a processor limit (all cores, all but one, or half), and the fan guard and the Silent and Balanced profiles watch the processor's temperature.</li>
+      <li>Processor power while generating: Normal, Reduced or Low, then put back. Windows turns turbo boost off (Low also holds the processor to 70%) with no administrator rights. Linux lowers the processor's own power limit to about 60% or 40%, or exact watts, after a one-time Allow.</li>
+      <li>Windows: the processor's temperature on more PCs, including without administrator rights.</li>
+      <li>Linux: installs from the .deb or .rpm now update themselves from inside the app, like Windows and the AppImage.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.5.5 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Phone app: much less lag while a bot or chat is replying, especially when the PC is slower. The reply's progress is sent a few times a second instead of on every word, and the phone redraws once per frame.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.5.4 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Small screens: clearer Menu and temperature buttons at the top for the sidebar and the thermals, and the window can now be as small as 480 by 400.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.5.3 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Smaller screens and windows: the panels make room, then the thermals and the sidebar slide in from buttons at the top. Works with display scaling on Windows and Linux.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.5.2 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Try Pro free for 7 days: Settings &gt; Ocadox Pro. No key or card needed.</li>
+      <li>AMD and Intel graphics: the fan guard and the GPU panel now work with them too (Windows and Linux), not just NVIDIA.</li>
+      <li>Android: the app tells you when a new version is out.</li>
+      <li>Ollama cloud models are marked CLOUD; Ocadox explains once what that means before you use one, and Settings &gt; Ollama server can hide them.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.5.1 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Phones: the pairing QR code now opens the Ocadox Android app instead of the browser. No app? A button shows the browser code.</li>
+      <li>Phones: a Chats tab next to Bots. Read your PC's chats, or start a quick chat with its model (no tools); it's saved in the PC's chat list.</li>
+      <li>Phones: turn a bot's routines on or off, or run one now.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.5.0 <span class="date">October 10, 2026</span></h2>
+    <ul>
+      <li>Bot templates: start a new bot as a test watcher, code reviewer, dependency checker, weekly summary or folder tidier.</li>
+      <li>Pro: your bots on your phone. Get the Ocadox Android app from the download page, then Settings &gt; Other computers &gt; Pair a computer or phone, and scan the QR code. Add all your Windows and Linux PCs; chat, stop and approve from the phone.</li>
+      <li>When a bot finishes, the notification shows the start of its answer. Routines can also save each result as a file.</li>
+      <li>Ocadox starts Ollama by itself when it isn't running, so routines work right after a restart.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.4.1 <span class="date">October 9, 2026</span></h2>
+    <ul>
+      <li>Models: drag the model cards up and down to put them in the order you like. The order is remembered.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.4.0 <span class="date">October 9, 2026</span></h2>
+    <ul>
+      <li>Voice: click the microphone by the message box and talk. Your words are written in for you, on this computer, with Whisper.</li>
+      <li>Settings &gt; Voice: choose the speech model (Small by default) and language.</li>
+      <li>Pro: the agent can transcribe audio and video files in your project, with timestamps.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.3.1 <span class="date">October 9, 2026</span></h2>
+    <ul>
+      <li>Bots stay free. Routines, Always on and Other computers are now part of Ocadox Pro.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.3.0 <span class="date">October 9, 2026</span></h2>
+    <ul>
+      <li>Bots: agents you come back to, each with its own avatar, chat, folder, model and instructions. Their avatars show what they're doing.</li>
+      <li>Bots keep working, and keep their results, with the window closed.</li>
+      <li>Routines: schedule a bot (daily, weekdays, weekly or hourly). It can even wake the PC from sleep.</li>
+      <li>Settings &gt; Always on: start Ocadox with Windows, quietly in the tray.</li>
+      <li>Settings &gt; Other computers: use an always-on PC's bots from your laptop, securely paired.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.2.1 <span class="date">October 8, 2026</span></h2>
+    <ul>
+      <li>Fixed: after the rename, the agent could not find its project folder. Your Hush Workspace is now Ocadox Workspace, files included.</li>
+      <li>A failed step opens by itself, so you can see why without clicking.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.2.0 <span class="date">October 8, 2026</span></h2>
+    <ul>
+      <li>Hush is now Ocadox. Your chats, settings and Pro license carry over.</li>
+      <li>Project instructions now live in <code>OCADOX.md</code> (/init writes one for you).</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.1.1 <span class="date">October 8, 2026</span></h2>
+    <ul>
+      <li>Ocadox Pro is on sale: buy a lifetime license in Settings &gt; Ocadox Pro and activate it with the key from your receipt.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.1.0 <span class="date">October 8, 2026</span></h2>
+    <ul>
+      <li>A guided first run: the right model for your GPU, your project folder, and a first task.</li>
+      <li>The agent notices when it is stuck in a loop and changes course or stops.</li>
+      <li>Share how quiet a run was as an image.</li>
+      <li>Ctrl+K command palette, Ctrl+N new chat, Esc to stop, and a light theme.</li>
+      <li><code>/image_create</code> makes images on this PC: built in (set up once in Settings), or with your own Forge server.</li>
+      <li>Background commands with a live terminal panel, and approving each edit with a diff.</li>
+      <li>Plan mode, <code>OCADOX.md</code> project instructions, images for vision models, PDFs and Word files.</li>
+    </ul>
+  </section>
+</main>
+<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a> &middot; <a href="help.html">Help</a> &middot; <a href="privacy.html">Privacy</a></div></footer>
+</body>
+</html>

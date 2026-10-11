@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocadox help</title>
+<meta name="description" content="How to use Ocadox: quiet settings, CPU mode, project rules, helpers, the browser, the terminal, bots, the phone app, cloud models and images.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+:root{--bg:#0a0c10;--card:#11141a;--line:#232a34;--text:#e7ebf1;--muted:#8b95a5;--accent:#5eead4;--radius:14px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.15rem;color:var(--text);text-decoration:none}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:18px}
+main{padding:48px 0 64px}
+h1{font-size:clamp(1.8rem,5vw,2.4rem);line-height:1.2;margin:0 0 .4em}
+h2{font-size:1.3rem;margin:2.2em 0 .4em;scroll-margin-top:16px}
+h3{font-size:1.02rem;margin:1.4em 0 .3em}
+p,li{color:var(--muted)}
+strong{color:var(--text)}
+.lead{font-size:1.1rem}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 22px;columns:2;column-gap:28px}
+.toc a{display:block;padding:2px 0;break-inside:avoid}
+code{background:#1a2029;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.9em;color:var(--text)}
+pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;overflow-x:auto;color:var(--text);font-size:.92em;line-height:1.5}
+pre code{background:none;border:0;padding:0}
+.note{border-left:3px solid var(--accent);padding:2px 0 2px 14px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){.toc{columns:1}}
+</style>
+</head>
+<body>
+<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./">ocadox<span>.</span></a><span class="links"><a href="whats-new.html">What's new</a><a href="./">Back to the site</a></span></nav></header>
+<main class="wrap">
+  <h1>Help</h1>
+  <p class="lead">The parts of Ocadox worth knowing about that you might not find on your own.</p>
+
+  <nav class="toc" aria-label="On this page">
+    <a href="#quiet">Keeping it quiet</a>
+    <a href="#cpu">No graphics card: CPU mode</a>
+    <a href="#rules">Project rules (AGENTS.md)</a>
+    <a href="#helpers">Helpers and self-checks</a>
+    <a href="#browser">The agent's browser</a>
+    <a href="#terminal">From the terminal</a>
+    <a href="#bots">Bots, routines and triggers</a>
+    <a href="#sharing">Sharing bots</a>
+    <a href="#phone">The phone app</a>
+    <a href="#images">Making images</a>
+    <a href="#cloud">Cloud models (your own key)</a>
+    <a href="#problems">Something's wrong</a>
+  </nav>
+
+  <h2 id="quiet">Keeping it quiet</h2>
+  <p>Fans follow temperature. Ocadox keeps the temperature down in four ways, all in Settings:</p>
+  <ul>
+    <li><strong>Profile: Silent, Balanced or Turbo.</strong> Silent paces replies and eases off as the graphics card nears 65&nbsp;&deg;C; Balanced at 75&nbsp;&deg;C; Turbo goes flat out.</li>
+    <li><strong>Fan guard.</strong> Before each agent step, Ocadox waits until the card is below your temperature (60&nbsp;&deg;C by default). No admin rights needed.</li>
+    <li><strong>Power cap</strong> (NVIDIA). Lowers the card's wattage only while a model generates, then puts it back. Needs administrator rights on Windows.</li>
+    <li><strong>Your quiet week.</strong> In the thermals panel: how long Ocadox worked this week and how quiet it stayed, as a card you can share.</li>
+  </ul>
+
+  <h2 id="cpu">No graphics card: CPU mode</h2>
+  <p>On an office desktop or a laptop with built-in graphics, models run on the processor. CPU mode turns on by itself (Settings &gt; CPU mode shows why) and:</p>
+  <ul>
+    <li>asks the model for less (a smaller context, no hidden thinking), so replies start sooner;</li>
+    <li>leaves one core free, so the mouse and windows keep working while it answers;</li>
+    <li>refuses a model too big for the free memory, instead of letting the PC freeze;</li>
+    <li>offers a <strong>processor limit</strong> (cores) and <strong>processor power</strong> (Reduced or Low: turbo boost off on Windows, a lower power limit on Linux after a one-time Allow).</li>
+  </ul>
+  <p class="note">Use a small model: <code>qwen3:1.7b</code> on 8&nbsp;GB of memory, <code>qwen3:4b</code> on 16&nbsp;GB. The model library labels what fits.</p>
+
+  <h2 id="rules">Project rules (AGENTS.md)</h2>
+  <p>Put an <code>AGENTS.md</code>, <code>OCADOX.md</code> or <code>CLAUDE.md</code> in the root of your project folder. The agent reads it as standing instructions: how to build, test, what to leave alone. Two lines do more than instruct:</p>
+<pre><code># AGENTS.md
+Use pnpm, not npm. Keep components small.
+
+Check: pnpm lint &amp;&amp; pnpm test
+After edit: npx prettier --write {file}</code></pre>
+  <ul>
+    <li><code>Check:</code> what the agent runs before it says it's done (see below).</li>
+    <li><code>After edit:</code> runs after every file the agent edits; <code>{file}</code> is that file. Handy for formatters.</li>
+  </ul>
+  <p>Both go through the usual "run this command?" approval, unless you've set an auto-approve rule.</p>
+
+  <h2 id="helpers">Helpers and self-checks</h2>
+  <h3>Helpers</h3>
+  <p>For a big task, the agent can hand a question ("where is the login handled?", "why does this error happen?") to a helper that starts with a fresh, empty context and can only look, not change anything. It answers in a few lines, which keeps the agent's own context small: a big help with local models. Helpers run <strong>one at a time</strong> on the same model, under the same fan guard, so the fans stay calm.</p>
+  <h3>Checking its own work</h3>
+  <p>When the agent has changed files and thinks it's finished, Ocadox runs the project's check and hands any errors back to it to fix, up to twice. Without a <code>Check:</code> line it picks one: <code>cargo check</code> for Rust, <code>tsc --noEmit</code> for TypeScript, <code>go build</code> for Go, a syntax check for Python.</p>
+
+  <h2 id="browser">The agent's browser</h2>
+  <p>To test a web app it's building, the agent can open it in a hidden copy of Chrome or Edge (whichever you have), click, type, and read the page and its console errors. Start your dev server, then ask, for example: "open http://localhost:5173, log in as test@example.com and check the dashboard loads without errors". Pages on your own PC always work; other websites only while web access is on (Settings).</p>
+
+  <h2 id="terminal">From the terminal</h2>
+<pre><code>ocadox run "fix the failing tests" --folder ~/code/app --model qwen3:8b</code></pre>
+  <ul>
+    <li><code>--folder</code> the project (default: the current folder), <code>--model</code> the model (default: your bots' model).</li>
+    <li><code>--steps 30</code> the most steps, <code>--quiet-level silent|balanced|turbo</code>.</li>
+    <li>It asks <code>y/N</code> before commands and changes; <code>--yes</code> allows them all (for scheduled jobs you trust).</li>
+    <li>Ollama is reached at <code>OLLAMA_HOST</code>, or on this PC.</li>
+  </ul>
+  <p class="note">On Windows, the terminal doesn't wait for a windowed app to finish. Use <code>start /wait ocadox run "…"</code> in Command Prompt.</p>
+
+  <h2 id="bots">Bots, routines and triggers</h2>
+  <p>A bot has its own name, chat, folder and model. Give it a job and close the window; the result is waiting when you come back. With Ocadox Pro, a bot can also work on its own with <strong>routines</strong>:</p>
+  <ul>
+    <li><strong>On a schedule:</strong> every day, weekdays, a day of the week, or every hour. It can wake the PC from sleep.</li>
+    <li><strong>When files change in its folder:</strong> optionally only some files, like <code>*.py</code> or <code>src/*.ts, *.tsx</code>. It waits until saving has settled, then runs once and is told which files changed.</li>
+    <li><strong>After a new commit:</strong> it's told which commit landed. Good for "review the latest commit".</li>
+  </ul>
+  <p>A bot's own edits never set it off again. Turn on <em>Save each result</em> to get a file per run in its folder's <code>Ocadox results</code>.</p>
+
+  <h2 id="sharing">Sharing bots</h2>
+  <p>In a bot's editor, <strong>Share as a file</strong> saves a small <code>.ocadox-bot.json</code>: its name, look, instructions, starter prompts and routines. Never its folder or chat. To use one, choose <strong>New bot &gt; From a file…</strong>. Routines from someone else arrive switched off; turn them on when you're happy with them.</p>
+
+  <h2 id="phone">The phone app</h2>
+  <ol>
+    <li>Install the Android app from the <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">releases page</a> (the <code>_android.apk</code>).</li>
+    <li>On the PC: Settings &gt; Other computers &gt; turn on "Let my other computers use this PC's bots" &gt; <strong>Pair a computer or phone</strong>, and scan the code with the phone.</li>
+    <li>Away from home: install Tailscale (free) on both and it keeps working, no router changes.</li>
+  </ol>
+  <p><strong>Full control:</strong> next to a paired phone, tick <em>Full control</em> to use the whole desktop app from it, running on the PC. Off, the phone has bots and chats only. <strong>Notifications</strong> work with the app closed (a quiet "Watching your bots" notification keeps it connected; switch it off on the list of computers).</p>
+
+  <h2 id="images">Making images</h2>
+  <p>Settings &gt; Image creation &gt; <strong>Set up image creation</strong> downloads an image engine and the Z-Image Turbo model once (6.7&nbsp;GB, every file checked). Then type <code>/image_create</code> and what you want, e.g. <code>/image_create a lighthouse at dusk, oil painting</code>. About a minute per image on a good graphics card. It needs 16&nbsp;GB of memory on a PC without a graphics card. Already run Forge? Put its address in the same settings and Ocadox uses it instead.</p>
+
+  <h2 id="cloud">Cloud models (your own key)</h2>
+  <p>For the odd task a local model can't handle: Settings &gt; Cloud models, pick a provider (OpenRouter, OpenAI, Anthropic or another OpenAI-compatible one), paste your API key and the model names you want. They appear in the model list marked <strong>CLOUD</strong>. When you use one, your messages and the files the agent reads go to that provider, and it bills your account. The key is kept only on your PC. Off until you add a key.</p>
+
+  <h2 id="problems">Something's wrong</h2>
+  <p>Settings &gt; Help &gt; <strong>Send feedback or report a bug</strong> copies a short report of your setup (system, graphics, memory, CPU mode, Ollama and the loaded models, the last errors) and opens a GitHub form; paste it in and say what happened. It has no names, folders or chats, and you see all of it before sending.</p>
+</main>
+<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a> &middot; <a href="whats-new.html">What's new</a> &middot; <a href="privacy.html">Privacy</a></div></footer>
+</body>
+</html>
