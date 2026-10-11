@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ocadox: local AI that keeps your GPU quiet</title>
-<meta name="description" content="Ocadox is a private, local AI app for Windows and Linux, built on Ollama: a coding agent and bots that work around the clock on your own PC, with a fan guard that keeps your GPU quiet. Check on them from the Android app.">
+<title>Ocadox: run local AI without your fans screaming</title>
+<meta name="description" content="Run local AI without your fans screaming. Ocadox is a private AI app for Windows and Linux, built on Ollama: a coding agent and bots that work around the clock on your own PC while it watches the heat and keeps the fans at normal speed, on a graphics card or the processor alone. Check on them from the Android app.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0a0c10">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ocadox: local AI that keeps your GPU quiet">
-<meta property="og:description" content="A coding agent and bots that work around the clock on your own PC, with Ollama, while the fans stay quiet. Check on them from your phone.">
+<meta property="og:title" content="Ocadox: run local AI without your fans screaming">
+<meta property="og:description" content="Your fans stop screaming. A coding agent and bots that work around the clock on your own PC, with Ollama, while Ocadox keeps the heat down. Check on them from your phone.">
 <meta property="og:image" content="https://ocadox.com/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>
@@ -165,14 +165,14 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div>
-      <h1 id="hero-title">Local AI that keeps your GPU <em class="hl">quiet</em>.</h1>
-      <p class="lead">A coding agent and bots that work around the clock on your own PC, with Ollama. Ocadox watches your GPU's temperature and paces the work, so the fans stay at normal speed. Check on your bots from your phone.</p>
+      <h1 id="hero-title">Run local AI. Your fans stop <em class="hl">screaming</em>.</h1>
+      <p class="lead">Local models run your PC flat out, and the fans roar the whole time. Ocadox runs a coding agent and bots on your own PC with Ollama, and watches the heat while they work: it paces the work and holds the power down, so the fans stay at normal speed. With a graphics card or just the processor. Check on your bots from your phone.</p>
       <div class="btns">
         <a class="btn primary" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download free</a>
         <a class="btn" href="#pricing">Pro: try it free for 7 days</a>
       </div>
       <div class="chips" aria-label="Works on">
-        <span>Windows 10/11</span><span>Linux</span><span>Android app</span><span>NVIDIA, AMD, Intel</span><span>No account</span>
+        <span>Windows 10/11</span><span>Linux</span><span>Android app</span><span>NVIDIA, AMD, Intel</span><span>No graphics card needed</span><span>No account</span>
       </div>
     </div>
     <div class="visual">
@@ -187,18 +187,19 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   <div class="wrap split">
     <div>
       <span class="eyebrow">The fan guard</span>
-      <h2 id="quiet-title">Agents run the GPU hard. Ocadox keeps it cool.</h2>
-      <p class="lead">A coding agent keeps a model generating for minutes at a time, and your fans ramp up to match. Ocadox paces the work instead of letting the heat build.</p>
+      <h2 id="quiet-title">Why your fans scream, and how Ocadox stops it</h2>
+      <p class="lead">A coding agent keeps a model generating for minutes at a time, flat out, and your fans ramp up to match. Other local AI apps let the heat build. Ocadox paces the work and lowers the power while it generates, then puts everything back.</p>
       <ol class="steps">
         <li><strong>The agent takes a step:</strong> it reads a file, writes code or runs a command.</li>
-        <li><strong>Ocadox checks the GPU temperature.</strong> Above your target (60&nbsp;&deg;C by default), it waits.</li>
-        <li><strong>The GPU cools, then work continues.</strong> No admin rights, no driver tweaks.</li>
+        <li><strong>Ocadox checks the temperature</strong> of the graphics card, or the processor in CPU mode. Above your target (60&nbsp;&deg;C by default for a graphics card), it waits.</li>
+        <li><strong>It cools, then work continues.</strong> No admin rights, no driver tweaks.</li>
       </ol>
     </div>
     <div class="grid two">
       <div class="card"><h3>Live GPU panel</h3><p>Temperature, fan, power and load while you work, and a card after every run: how hot it got, how loud, how many watts.</p></div>
       <div class="card"><h3>Any GPU</h3><p>NVIDIA, AMD and Intel graphics, on Windows and Linux. NVIDIA gets the most detail.</p></div>
-      <div class="card"><h3>Power cap <span class="tag">Optional</span></h3><p>Limit the watts while a model generates, for even less heat. NVIDIA cards.</p></div>
+      <div class="card"><h3>Power cap <span class="tag">Optional</span></h3><p>Lower the power only while a model generates, for even less heat: watts on NVIDIA cards, turbo boost or the power limit on the processor.</p></div>
+      <div class="card"><h3>No graphics card? CPU mode</h3><p>Office desktops and laptops run models on the processor. Ocadox notices, asks the model for less, and keeps the processor cool too.</p></div>
       <div class="card"><h3>Quiet hours <span class="tag">Pro</span></h3><p>Queue big jobs for the night with Night Shift, and see the energy they used.</p></div>
     </div>
   </div>
@@ -355,7 +356,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
       <div class="card"><h3>Android</h3><p>Android 8 or later, for the companion app.</p></div>
       <div class="card"><h3>Ollama</h3><p>Free. Ocadox offers to install it on Windows.</p></div>
     </div>
-    <p class="small" style="margin-top:16px">Any NVIDIA, AMD or Intel GPU works with the fan guard. A GPU with 8&nbsp;GB of VRAM or more runs good agent models; Ocadox suggests one that fits yours.</p>
+    <p class="small" style="margin-top:16px">Any NVIDIA, AMD or Intel GPU works with the fan guard. A GPU with 8&nbsp;GB of VRAM or more runs good agent models; Ocadox suggests one that fits yours. No graphics card? CPU mode runs small models (3 to 4B) on the processor, slower but quiet.</p>
   </div>
 </section>
 
@@ -372,7 +373,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     </details>
     <details>
       <summary>Which GPUs work?</summary>
-      <p>NVIDIA, AMD and Intel, on Windows and Linux. The fan guard reads the GPU temperature on all of them. NVIDIA cards (and AMD on Linux) also show fan, power and load in the live panel; AMD and Intel on Windows show temperature and fan speed. The optional power cap is for NVIDIA cards.</p>
+      <p>NVIDIA, AMD and Intel, on Windows and Linux. The fan guard reads the GPU temperature on all of them. NVIDIA cards (and AMD on Linux) also show fan, power and load in the live panel; AMD and Intel on Windows show temperature and fan speed. The optional power cap is for NVIDIA cards. No graphics card at all? CPU mode turns on by itself and keeps the processor quiet instead.</p>
     </details>
     <details>
       <summary>Can I use Ollama's cloud models?</summary>
@@ -388,7 +389,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     </details>
     <details>
       <summary>Does it need admin rights?</summary>
-      <p>No. The fan guard works by pausing the agent until the GPU cools. Only the optional power cap needs administrator rights, and Ocadox asks only if you turn it on.</p>
+      <p>No. The fan guard works by pausing the agent until things cool. Only the optional GPU power cap needs administrator rights, and Ocadox asks only if you turn it on. In CPU mode, Windows needs no admin rights at all; Linux asks for your password once.</p>
     </details>
     <details>
       <summary>Is there a Mac or iPhone version?</summary>
