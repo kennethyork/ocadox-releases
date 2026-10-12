@@ -318,6 +318,8 @@ footer p{margin:0}
         <div><h3>Helpers, one at a time</h3><p>Hands a question to a helper with a fresh, empty context, which keeps long tasks on track on local models, and the fans calm.</p></div>
         <div><h3>Rules, hooks, terminal</h3><p>Follows AGENTS.md or OCADOX.md, runs <code>After edit:</code> hooks, and <code>ocadox run "fix the failing tests"</code> works without the window.</p></div>
         <div><h3>Talk, or type, for hours</h3><p>Whisper turns your voice into text on your PC. Long chats are summarised as they grow, saved, and searchable.</p></div>
+        <div><h3>Git, built in <span class="tag">New</span></h3><p>See your changes and diffs, commit with a message your local model writes, push, pull, switch branches, clone, and open GitHub pull requests.</p></div>
+        <div><h3>Cloud when you want it <span class="tag">New</span></h3><p>Sign in with OpenRouter for Claude, GPT, Gemini, Grok and 450+ more, with prices shown. Optional, off until you choose it, and clearly marked.</p></div>
         <div class="wide panel">
           <h3>Bots</h3>
           <ul class="list" style="margin-top:12px">
@@ -450,7 +452,7 @@ footer p{margin:0}
           <tr><th scope="row">Helpers, self-checks, hooks, a browser for the agent, the terminal</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Saved, searchable chats</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Voice dictation (Whisper, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Optional cloud models with your own API key</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Optional cloud models: Sign in with OpenRouter (450+ models) or your own API key</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Custom agents (own instructions, model, power cap)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Semantic code search (local embeddings)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">MCP servers, and Ollama on another computer</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
@@ -458,6 +460,7 @@ footer p{margin:0}
 
           <tr class="sect"><th scope="rowgroup" colspan="3">Safety nets</th></tr>
           <tr><th scope="row">Checkpoints: per-file diff review and one-click undo</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Git panel: changes, commits, push and pull, branches, clone, GitHub pull requests <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Agent branches (own git worktree, merge or discard)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Auto-approve rules</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
 
@@ -559,7 +562,7 @@ footer p{margin:0}
       </details>
       <details>
         <summary>Can I use cloud models like Claude or GPT, or Ollama's?</summary>
-        <p>Yes, if you want to. Add your own API key (OpenRouter, OpenAI, Anthropic and others) in Settings &gt; Cloud models; it's off until you do. Or sign in to Ollama and pull one of its cloud models. Either way they're marked CLOUD: when you use one, your messages and the files the agent reads go to that provider. Your own key bills your account. Ocadox tells you once before you use an Ollama cloud model, and Settings can hide them so everything stays on your computer.</p>
+        <p>Yes, if you want to. In Settings &gt; Cloud models, press <b>Sign in with OpenRouter</b> and approve in your browser (no key to copy), then pick from 450+ models with their prices: Claude, GPT, Gemini, Grok, DeepSeek and more. Or add your own API key for OpenAI, Anthropic and others. It's off until you do. Or sign in to Ollama and pull one of its cloud models. Either way they're marked CLOUD: when you use one, your messages and the files the agent reads go to that provider. Your own key bills your account. Ocadox tells you once before you use an Ollama cloud model, and Settings can hide them so everything stays on your computer.</p>
       </details>
       <details>
         <summary>Can bots keep working while I'm away?</summary>

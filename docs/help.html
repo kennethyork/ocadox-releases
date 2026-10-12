@@ -59,7 +59,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#recording">Recording a website</a>
     <a href="#characters">Characters (AI influencers)</a>
     <a href="#poster">The Poster</a>
-    <a href="#cloud">Cloud models (your own key)</a>
+    <a href="#git">Git and GitHub</a>
+    <a href="#cloud">Cloud models (OpenRouter or your own key)</a>
     <a href="#problems">Something's wrong</a>
   </nav>
 
@@ -175,8 +176,21 @@ After edit: npx prettier --write {file}</code></pre>
   <p><strong>Bots:</strong> ask a bot or the agent to "write a post about this release" and it drafts one into the queue. With Pro, tick <em>Bots may post</em> on an account to let them post there without asking (never Reddit, which bans automatic posting). A routine such as "every Monday, post what we shipped" makes it a weekly habit.</p>
   <p><strong>Limits:</strong> Free has 1 brand and 20 posts a month to Bluesky, Mastodon, Discord and Slack. Pro has 5 brands and 100 posts a month, plus X and Reddit. A post to three accounts counts three; the count resets on the 1st.</p>
 
-  <h2 id="cloud">Cloud models (your own key)</h2>
-  <p>For the odd task a local model can't handle: Settings &gt; Cloud models, pick a provider (OpenRouter, OpenAI, Anthropic or another OpenAI-compatible one), paste your API key and the model names you want. They appear in the model list marked <strong>CLOUD</strong>. When you use one, your messages and the files the agent reads go to that provider, and it bills your account. The key is kept only on your PC. Off until you add a key.</p>
+  <h2 id="git">Git and GitHub</h2>
+  <p><strong>Tools &gt; Git</strong> works on the chat's folder:</p>
+  <ul>
+    <li><strong>Changes:</strong> pick a file to see its diff; tick it to stage it (or <strong>Stage all</strong>).</li>
+    <li><strong>Commit:</strong> type a message or press <strong>Write message</strong> to have your local model write one.</li>
+    <li><strong>Push, Pull, Fetch</strong>, and a branch menu to switch or make a <strong>New branch</strong>.</li>
+    <li><strong>Clone:</strong> in a folder that isn't a repository, paste an address (or pick from <strong>Show my GitHub repositories</strong>) and choose where it goes; it becomes the chat's folder.</li>
+    <li><strong>Pull request:</strong> on a branch, <strong>Write it</strong> drafts the title and description; <strong>Open pull request</strong> pushes the branch and opens it on GitHub.</li>
+  </ul>
+  <p><strong>Signing in to GitHub</strong> uses what Git already has: on Windows, Git for Windows' own sign-in opens in your browser the first time you push or press <strong>Sign in with GitHub</strong>; the GitHub CLI's login (<code>gh auth login</code>) works too. Ocadox keeps no GitHub password or token of its own.</p>
+
+  <h2 id="cloud">Cloud models (OpenRouter or your own key)</h2>
+  <p>For the odd task a local model can't handle. Settings &gt; Cloud models: turn them on, keep OpenRouter as the provider and press <strong>Sign in with OpenRouter</strong>; approve in your browser, then pick models from the list (search, prices per million tokens, and <strong>Agent-ready</strong> for models that can use the agent's tools). Or choose OpenAI, Anthropic or another OpenAI-compatible provider, paste your API key and the model names you want. They appear in the model list marked <strong>CLOUD</strong>. When you use one, your messages and the files the agent reads go to that provider, and it bills your account. The key is kept only on your PC. Off until you add a key.</p>
+
+  <p><strong>Where everything is:</strong> the <strong>Tools</strong> menu at the top has video, picture editing, voice-overs, recording, Characters, the Poster and Git; Ctrl+K finds anything by name.</p>
 
   <h2 id="problems">Something's wrong</h2>
   <p>Settings &gt; Help &gt; <strong>Send feedback or report a bug</strong> copies a short report of your setup (system, graphics, memory, CPU mode, Ollama and the loaded models, the last errors) and opens a GitHub form; paste it in and say what happened. It has no names, folders or chats, and you see all of it before sending.</p>
