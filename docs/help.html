@@ -192,6 +192,12 @@ After edit: npx prettier --write {file}</code></pre>
 
   <p><strong>Where everything is:</strong> the <strong>Tools</strong> menu at the top has video, picture editing, voice-overs, recording, Characters, the Poster and Git; Ctrl+K finds anything by name.</p>
 
+  <h3>Use your Codex (ChatGPT plan)</h3>
+  <p>With a ChatGPT Plus or Pro plan, you can use OpenAI's Codex as a model on your plan's limits. Install Codex once (<code>npm install -g @openai/codex</code>, needs Node.js), then Settings &gt; Cloud models &gt; <strong>Sign in with ChatGPT</strong>; Codex's own sign-in opens in your browser. Its models appear in the list marked <strong>CLOUD</strong>. In agent mode Codex works in the chat's folder and asks through Ocadox before anything risky; in plain chat it only reads.</p>
+
+  <h2 id="self-recording">Recording Ocadox itself</h2>
+  <p><strong>Tools &gt; Record Ocadox</strong> records the app's window (the red timer at the top stops it) and puts the video in the chat. <strong>Tools &gt; Record a demo</strong> asks for a task, records while the agent does it, and stops when it's done. On a Mac, allow Ocadox under System Settings &gt; Privacy &amp; Security &gt; Screen Recording the first time. Some Linux desktops (Wayland) don't let apps record the screen; use an X11 session or the desktop's own recorder.</p>
+
   <h2 id="problems">Something's wrong</h2>
   <p>Settings &gt; Help &gt; <strong>Send feedback or report a bug</strong> copies a short report of your setup (system, graphics, memory, CPU mode, Ollama and the loaded models, the last errors) and opens a GitHub form; paste it in and say what happened. It has no names, folders or chats, and you see all of it before sending.</p>
 </main>
