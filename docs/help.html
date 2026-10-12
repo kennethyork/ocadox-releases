@@ -55,6 +55,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#phone">The phone app</a>
     <a href="#images">Making images and videos</a>
     <a href="#voice">Speaking in your voice</a>
+    <a href="#editing">Editing pictures and videos</a>
+    <a href="#recording">Recording a website</a>
+    <a href="#characters">Characters (AI influencers)</a>
     <a href="#poster">The Poster</a>
     <a href="#cloud">Cloud models (your own key)</a>
     <a href="#problems">Something's wrong</a>
@@ -135,12 +138,32 @@ After edit: npx prettier --write {file}</code></pre>
   <p>Settings &gt; Image creation &gt; <strong>Set up image creation</strong> downloads an image engine and the Z-Image Turbo model once (6.7&nbsp;GB, every file checked). Then type <code>/image_create</code> and what you want, e.g. <code>/image_create a lighthouse at dusk, oil painting</code>. About a minute per image on a good graphics card. It needs 16&nbsp;GB of memory on a PC without a graphics card. Already run Forge? Put its address in the same settings and Ocadox uses it instead.</p>
 
   <h3>Videos</h3>
-  <p>Settings &gt; Image creation &gt; <strong>Video creation</strong> downloads the Wan 2.2 video model once (9.4&nbsp;GB). Then <code>/video_create a cat walking through autumn leaves</code> makes a clip of about 2 seconds, or press <strong>Animate</strong> under any generated image to bring it to life. It takes a few minutes and works the graphics card hard, so the fan guard and power cap apply. It needs a graphics card (12&nbsp;GB or more is comfortable).</p>
+  <p>Settings &gt; Image creation &gt; <strong>Video creation</strong> downloads the Wan 2.2 video model once (9.4&nbsp;GB). Then <code>/video_create a cat walking through autumn leaves</code> makes a clip, or press <strong>Animate</strong> under any generated image to bring it to life. Choose the length in <strong>Make a video…</strong> (command palette), 2 seconds to 2 minutes, or type it: <code>/video_create 30s a cat…</code>. Over 5 seconds, the video is made as 5-second parts, each starting where the last ended, and saved as an MP4; write one line per scene for a storyboard. Each 5 seconds takes a few minutes and works the graphics card hard, so the fan guard and power cap apply. It needs a graphics card (12&nbsp;GB or more is comfortable).</p>
 
   <h2 id="voice">Speaking in your voice</h2>
   <p>Settings &gt; Image creation &gt; <strong>Speech, in your voice</strong> downloads Qwen3-TTS once (2.3&nbsp;GB). Under <strong>Voices</strong>, add a 5&ndash;30 second WAV or MP3 of clear speech, give it a name and confirm it's your voice or you have the person's permission. Then:</p>
 <pre><code>/speak voice=Me Your tests all pass, and the fans stayed quiet.</code></pre>
   <p>Without <code>voice=</code> it uses your latest voice. Voices stay on your PC. Never use someone's voice without asking them.</p>
+
+  <h3>Voice-overs</h3>
+  <p>Press <strong>Voice over</strong> under a video (or <strong>Voice over a video…</strong> for a file). Type the script, or describe the video and press <strong>Draft with AI</strong>; pick a saved voice and whether to add captions. A short clip loops under a longer voice; a longer video holds its last frame until the voice ends.</p>
+
+  <h2 id="editing">Editing pictures and videos</h2>
+  <p><strong>Pictures:</strong> set up <strong>Picture editing</strong> once in Settings &gt; Image creation (7&nbsp;GB). Then press <strong>Edit</strong> under any picture and say what to change, or <strong>Upscale</strong> to make it 4 times bigger. <strong>Edit a picture…</strong> in the command palette works on your own files.</p>
+  <p><strong>Videos:</strong> press <strong>Edit</strong> under a video, or <strong>Edit a video…</strong>. Describe the edit and press <strong>Fill in</strong>, or set it by hand: trim, shape (9:16 for TikTok, Reels and Shorts; 1:1; 16:9) by fitting over a blurred background or cropping, clips to join after it, music and its volume, and text on screen. Ocadox downloads FFmpeg once on Windows (115&nbsp;MB); on Linux install it with <code>sudo apt install ffmpeg</code>.</p>
+
+  <h2 id="recording">Recording a website</h2>
+  <p><strong>Record a website…</strong> in the command palette: type the address, pick the length, desktop or phone size, and whether to scroll to the bottom. It opens in a private browser of its own (no sign-ins, nothing shared with your browser) and saves an MP4 you can edit or voice over.</p>
+
+  <h2 id="characters">Characters (AI influencers)</h2>
+  <p>The <strong>Characters</strong> button in the top bar. Describe what your character looks like and press <strong>Make a portrait</strong> (or use a picture you have the rights to); add a personality, a saved voice and the Poster brand to post as. You'll be asked to confirm the face is made up, yours, or used with the person's permission.</p>
+  <ul>
+    <li><strong>New photo:</strong> say where they are and what they're doing; the face stays the same.</li>
+    <li><strong>Bring a photo to life</strong> as a video, and <strong>make them talk</strong> in their voice.</li>
+    <li><strong>Post it:</strong> your local model writes a caption in their personality, and the post goes to the Poster for your OK. Their AI label ("AI-generated character", which you can reword) is added unless you turn it off; platforms and advertising rules expect AI-made people to be labelled.</li>
+    <li><strong>Bots:</strong> "every morning, make a new photo of Mia and post it" works as a routine.</li>
+  </ul>
+  <p>Free has 1 character, Pro 5. Videos post to Mastodon, Discord (up to 10&nbsp;MB) and Bluesky.</p>
 
   <h2 id="poster">The Poster</h2>
   <p>The <strong>Poster</strong> button in the top bar writes, schedules and publishes posts.</p>

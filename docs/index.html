@@ -3,144 +3,209 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ocadox: run local AI without your fans screaming</title>
-<meta name="description" content="Run local AI without your fans screaming. Ocadox is a private AI app for Windows and Linux, built on Ollama: a coding agent, image creation and bots that work around the clock on your own PC while it watches the heat and keeps the fans at normal speed, on a graphics card or the processor alone. Check on them from the Android app.">
+<title>Ocadox: the local AI of the future</title>
+<meta name="description" content="The local AI of the future. Ocadox is a private AI app for Windows and Linux, built on Ollama: a coding agent, bots, images, video and voice on your own PC, while it watches the heat and keeps the fans at normal speed, on a graphics card or the processor alone. Check on your bots from the Android app.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0a0c10">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ocadox: run local AI without your fans screaming">
-<meta property="og:description" content="Your fans stop screaming. A coding agent and bots that work around the clock on your own PC, with Ollama, while Ocadox keeps the heat down. Check on them from your phone.">
+<meta property="og:title" content="Ocadox: the local AI of the future">
+<meta property="og:description" content="The local AI of the future, and your fans stop screaming. A coding agent, bots, images, video and voice on your own PC, with Ollama, while Ocadox keeps the heat down. Check on your bots from your phone.">
 <meta property="og:image" content="https://ocadox.com/cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-/* Same colours as the app (src/App.css) and the Gumroad page. */
+/* Same colours as the app (src/App.css), the other pages and the Gumroad page. */
 :root{
-  --bg:#0a0c10;--bg2:#11141a;--card:#11141a;--card2:#161a21;--line:#232a34;
-  --text:#e7ebf1;--muted:#8b95a5;--accent:#5eead4;--accent2:#38bdf8;--warm:#fbbf24;--cool:#34d399;
-  --accent-ink:#06201c;--radius:14px;--max:1120px;
+  --bg:#0a0c10;--bg2:#0d1015;--card:#11141a;--line:#232a34;--line-soft:#1a2028;
+  --text:#e7ebf1;--muted:#8b95a5;--soft:#b9c2ce;--accent:#5eead4;--accent-ink:#06201c;
+  --accent-wash:rgba(94,234,212,.07);--accent-edge:rgba(94,234,212,.28);
+  --radius:16px;--max:1080px;--narrow:680px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);
-  font:16px/1.6 "Segoe UI Variable Text","Segoe UI",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  font:17px/1.65 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
   overflow-x:hidden}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:6px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
 img{max-width:100%;height:auto;display:block}
+code{font-family:ui-monospace,"Cascadia Mono",Consolas,"Liberation Mono",monospace;font-size:.88em;background:#161b22;border:1px solid var(--line-soft);border-radius:6px;padding:1px 6px;color:var(--text);overflow-wrap:anywhere}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.narrow{max-width:var(--narrow)}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+[id]{scroll-margin-top:72px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 12px;border-radius:8px;z-index:10}
 .skip:focus{left:8px}
 
 /* Header */
-header.top{position:sticky;top:0;z-index:5;background:rgba(10,12,16,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.15rem;color:var(--text);text-decoration:none}
-.brand i{width:16px;height:16px;border-radius:50%;border:4px solid var(--accent)}
+header.top{position:sticky;top:0;z-index:5;background:rgba(10,12,16,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:650;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.01em}
+.brand i{width:15px;height:15px;border-radius:50%;border:4px solid var(--accent)}
 .brand b{color:var(--accent)}
-.nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0;flex-wrap:wrap;align-items:center}
+.nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;align-items:center}
 .nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
 .nav ul a:hover{color:var(--text)}
-.nav ul a.cta{color:var(--accent-ink);background:var(--accent);padding:6px 14px;border-radius:999px;font-weight:600}
+.nav ul a.cta{color:var(--text);border:1px solid var(--accent-edge);background:var(--accent-wash);padding:6px 16px;border-radius:999px}
+.nav ul a.cta:hover{border-color:var(--accent)}
 
 /* Type */
-section{padding:72px 0;border-bottom:1px solid var(--line)}
-h1,h2,h3{line-height:1.15;margin:0 0 .6em}
-h1{font-size:clamp(2.1rem,5.6vw,3.6rem);letter-spacing:-.02em}
-h2{font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.01em}
-h3{font-size:1.1rem}
+section{padding:120px 0}
+h1,h2,h3{line-height:1.15;margin:0 0 .55em;font-weight:620;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,6.4vw,4.2rem);letter-spacing:-.035em;line-height:1.05}
+h2{font-size:clamp(1.75rem,4.2vw,2.6rem);letter-spacing:-.025em}
+h3{font-size:1.12rem;letter-spacing:-.01em}
 p{margin:0 0 1em}
-em.hl{font-style:normal;color:var(--accent)}
-.lead{font-size:1.15rem;color:var(--muted);max-width:660px}
-.small{font-size:.9rem;color:var(--muted)}
-.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:rgba(94,234,212,.08);border:1px solid #2a6f66;color:var(--accent);padding:2px 9px;border-radius:999px;vertical-align:middle}
+.hl{color:var(--accent)}
+.lead{font-size:clamp(1.08rem,2.2vw,1.22rem);color:var(--muted);line-height:1.6}
+.small{font-size:.92rem;color:var(--muted)}
+.eyebrow{display:block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.tag{display:inline-block;font-size:.68rem;font-weight:650;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--accent-edge);color:var(--accent);padding:1px 8px;border-radius:999px;vertical-align:.15em;margin-left:4px;white-space:nowrap}
+.tag.next{border-style:dashed}
+.tag.dim{border-color:var(--line);color:var(--muted)}
+.rule{height:1px;border:0;margin:0 auto;max-width:var(--max);background:linear-gradient(90deg,transparent,var(--line),transparent)}
 
 /* Buttons */
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 12px}
-.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--text);background:var(--bg2)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin:34px 0 0}
+.center .btns,.btns.center{justify-content:center}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--text);background:transparent;transition:border-color .2s,background-color .2s}
+.btn:hover{border-color:var(--accent-edge);background:var(--accent-wash)}
 .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.btn:hover{filter:brightness(1.08)}
+.btn.primary:hover{background:#7ff0de}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 
 /* Hero */
-.hero{padding:72px 0 64px;background:radial-gradient(900px 520px at 85% 0%,rgba(94,234,212,.12),transparent 70%),var(--bg)}
-.hero-grid{display:grid;gap:44px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.chips span{background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:.85rem;color:#c3cbd6}
-.visual{position:relative;padding-bottom:40px}
-.shot{border:1px solid #2a313b;border-radius:12px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55);background:var(--bg2)}
-.visual .phone{position:absolute;right:-6px;bottom:0;width:30%;min-width:120px}
-.phone{border-radius:26px;padding:7px;background:#1c2128;box-shadow:0 24px 60px rgba(0,0,0,.65),0 0 0 2px #2a313b inset}
-.phone img{border-radius:20px;width:100%}
-.badge-float{position:absolute;left:18px;bottom:6px;display:flex;align-items:center;gap:10px;background:rgba(17,20,26,.94);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.92rem;box-shadow:0 14px 34px rgba(0,0,0,.5)}
-.badge-float i{width:9px;height:9px;border-radius:50%;background:var(--cool);box-shadow:0 0 0 4px rgba(52,211,153,.18)}
-.badge-float b{color:var(--cool)}
-@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero{padding:112px 0 96px;text-align:center;
+  background:radial-gradient(760px 420px at 50% -60px,rgba(94,234,212,.10),transparent 70%),var(--bg)}
+.hero .lead{max-width:620px;margin:22px auto 0}
+.hero .btns{justify-content:center}
+.hero-note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+.meta{list-style:none;padding:0;margin:40px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;font-size:.88rem;color:var(--muted)}
+.meta li{display:flex;align-items:center;gap:8px}
+.meta li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+.stage{margin:72px auto 0;max-width:980px;position:relative}
+.stage::before{content:"";position:absolute;inset:8% 6% -6%;background:radial-gradient(closest-side,rgba(94,234,212,.13),transparent);filter:blur(30px);z-index:0}
+.shot{position:relative;z-index:1;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55);background:var(--card)}
 
-/* Layout helpers */
-.split{display:grid;gap:44px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+/* Layout */
+.split{display:grid;gap:64px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
 .split.flip > :first-child{order:2}
-@media (max-width:900px){.split,.split.flip{grid-template-columns:minmax(0,1fr)}.split.flip > :first-child{order:0}}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
-.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
-@media (max-width:900px){.grid,.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.grid,.grid.two,.grid.four{grid-template-columns:minmax(0,1fr)}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-.card p{color:var(--muted);margin:0}
-.card h3{margin-bottom:.45em}
-.list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
-.list li{position:relative;padding-left:26px;color:#c3cbd6}
-.list li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--accent)}
-.list li b{color:var(--text)}
-.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 18px 15px 58px;position:relative;color:var(--muted)}
-.steps li strong{color:var(--text)}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-.phones{display:flex;gap:20px;justify-content:center;align-items:flex-start}
-.phones .phone{width:46%;max-width:260px}
-.phones .phone:last-child{margin-top:34px}
+.head{max-width:var(--narrow);margin-bottom:56px}
+.head.center{text-align:center}
+.cols{display:grid;gap:44px 48px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cols.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.item h3{margin-bottom:.4em}
+.item p{color:var(--muted);margin:0;font-size:.98rem}
+.item::before{content:"";display:block;width:22px;height:2px;border-radius:2px;background:var(--accent);opacity:.75;margin-bottom:18px}
+
+/* Steps */
+.steps{list-style:none;counter-reset:s;padding:0;margin:0 0 72px;display:grid;gap:20px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.steps li{counter-increment:s;padding:24px;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg2);color:var(--muted);font-size:.98rem}
+.steps li::before{content:"0" counter(s);display:block;font-size:.8rem;letter-spacing:.12em;color:var(--accent);margin-bottom:10px;font-weight:600}
+.steps strong{color:var(--text);display:block;margin-bottom:4px;font-weight:600}
+
+/* Lists */
+.list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.list li{position:relative;padding-left:24px;color:var(--soft)}
+.list li::before{content:"";position:absolute;left:3px;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.8}
+.list li b{color:var(--text);font-weight:600}
+
+/* Feature groups */
+.group{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;padding:72px 0;border-top:1px solid var(--line-soft)}
+.head + .group{border-top:0;padding-top:16px}
+.group .num{display:block;font-size:.8rem;letter-spacing:.12em;color:var(--accent);font-weight:600;margin-bottom:12px}
+.group .lead{font-size:1.05rem}
+.group figure{margin:32px 0 0}
+.sub{display:grid;gap:28px 36px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.sub h3{font-size:1.02rem;margin-bottom:.35em}
+.sub p{margin:0;color:var(--muted);font-size:.96rem}
+.sub .wide{grid-column:1/-1}
+.panel{border:1px solid var(--line-soft);background:var(--bg2);border-radius:var(--radius);padding:24px}
+.panel.new{border-color:var(--accent-edge);background:linear-gradient(180deg,var(--accent-wash),transparent 60%),var(--bg2)}
+.phones{display:flex;gap:18px;justify-content:center;align-items:flex-start;margin-top:32px}
+.phone{width:44%;max-width:230px;border-radius:26px;padding:7px;background:#171b22;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px var(--line) inset}
+.phone img{border-radius:20px;width:100%}
+.phone:last-child{margin-top:36px}
 
 /* Table */
-.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;min-width:320px;font-size:.95rem}
-caption{text-align:left;padding:12px 14px;color:var(--muted)}
-th,td{padding:10px 14px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
-thead th{background:var(--bg2);border-top:0}
-tbody th{font-weight:500}
-td.c,th.c{text-align:center;white-space:nowrap}
-.yes{color:var(--accent);font-weight:700}
+.table-wrap{max-width:880px;overflow-x:auto;border:1px solid var(--line-soft);border-radius:var(--radius);-webkit-overflow-scrolling:touch;background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+caption{text-align:left;padding:14px 18px;color:var(--muted);font-size:.9rem}
+th,td{padding:11px 18px;border-top:1px solid var(--line-soft);text-align:left;vertical-align:top}
+thead th{border-top:0;font-weight:600;color:var(--text)}
+tbody th{font-weight:400;color:var(--soft)}
+td.c,th.c{text-align:center;white-space:nowrap;width:5.5em}
+.yes{color:var(--accent)}
 .no{color:var(--muted)}
-tr.group th{background:var(--bg2);color:var(--muted);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+tr.sect th{padding-top:26px;color:var(--muted);font-size:.74rem;font-weight:650;letter-spacing:.12em;text-transform:uppercase;border-top:1px solid var(--line)}
 
 /* Pricing */
-.plans{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
-@media (max-width:760px){.plans{grid-template-columns:minmax(0,1fr)}}
-.plan{display:flex;flex-direction:column}
-.plan.pro{border-color:var(--accent);background:linear-gradient(180deg,rgba(94,234,212,.06),transparent 40%),var(--card)}
-.price{font-size:2.6rem;font-weight:800;margin:.1em 0 .2em;color:var(--text)!important}
-.price small{font-size:1rem;color:var(--muted);font-weight:500;margin-left:6px}
-.plan ul{padding-left:1.2em;color:var(--muted);margin:0 0 1.2em;flex:1}
+.plans{display:grid;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:880px;margin:0 auto}
+.plan{display:flex;flex-direction:column;border:1px solid var(--line-soft);background:var(--bg2);border-radius:20px;padding:34px}
+.plan.pro{border-color:var(--accent-edge);background:radial-gradient(460px 220px at 50% 0%,rgba(94,234,212,.08),transparent 75%),var(--bg2)}
+.plan h3{font-size:1.05rem;color:var(--soft)}
+.price{font-size:3rem;font-weight:620;letter-spacing:-.03em;margin:.05em 0 .4em;line-height:1}
+.launch{margin:-.6em 0 1em;color:var(--accent);font-size:.92rem}
+.price small{font-size:1rem;color:var(--muted);font-weight:400;margin-left:8px;letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:0 0 30px;flex:1;display:grid;gap:9px}
+.plan li{color:var(--soft);padding-left:24px;position:relative;font-size:.97rem}
+.plan li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:5px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
 .plan .btns{margin:0}
-.trial{display:flex;gap:12px;align-items:center;margin-top:18px;padding:14px 18px;border:1px dashed #2a6f66;border-radius:var(--radius);color:#c3cbd6}
-.trial b{color:var(--accent)}
+.plan .btn{width:100%;text-align:center}
+.trial{max-width:880px;margin:20px auto 0;text-align:center;padding:16px 20px;border:1px dashed var(--accent-edge);border-radius:var(--radius);color:var(--soft)}
+.trial b{color:var(--accent);font-weight:600}
+.needs{max-width:880px;margin:56px auto 0}
+.needs .cols{gap:24px}
+.needs h3{font-size:.95rem;margin-bottom:.25em}
+.needs p{font-size:.93rem;color:var(--muted);margin:0}
 
-/* FAQ, footer */
-details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:4px 18px;margin-bottom:10px}
-summary{cursor:pointer;font-weight:600;padding:12px 0}
-details p{color:var(--muted)}
-footer{padding:36px 0;color:var(--muted);font-size:.9rem}
-footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-@media (max-width:520px){
-  section{padding:52px 0}
-  .hero{padding:48px 0 40px}
-  .btn{width:100%;text-align:center}
-  .nav ul{gap:12px}
-  .nav ul li.hide-sm{display:none}
-  th,td{padding:9px 10px}
-  .badge-float{display:none}
+/* FAQ */
+.faq{max-width:760px;margin:0 auto}
+details{border-bottom:1px solid var(--line-soft)}
+details:first-of-type{border-top:1px solid var(--line-soft)}
+summary{cursor:pointer;font-weight:550;padding:20px 36px 20px 0;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details p{color:var(--muted);margin:0 0 22px;max-width:680px}
+
+/* Footer */
+footer{padding:56px 0 64px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line-soft)}
+footer .row{display:flex;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;align-items:baseline}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+footer nav a{color:var(--muted);text-decoration:none}
+footer nav a:hover{color:var(--text);text-decoration:underline}
+footer p{margin:0}
+
+@media (max-width:900px){
+  section{padding:88px 0}
+  .split,.split.flip,.group{grid-template-columns:minmax(0,1fr);gap:40px}
+  .split.flip > :first-child{order:0}
+  .cols,.cols.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .nav ul li.hide-md{display:none}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:72px 0}
+  .hero{padding:72px 0 64px}
+  .stage{margin-top:52px}
+  .cols,.cols.two,.cols.four,.sub,.plans{grid-template-columns:minmax(0,1fr)}
+  .cols{gap:36px}
+  .group{padding:56px 0}
+  .head{margin-bottom:40px}
+  .btn{width:100%;text-align:center}
+  .nav ul{gap:16px}
+  .nav ul li.hide-sm{display:none}
+  .plan{padding:26px}
+  th,td{padding:10px 12px}
+  td.c,th.c{width:4.6em}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -148,14 +213,13 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
 <header class="top">
   <nav class="wrap nav" aria-label="Main">
-    <a class="brand" href="#"><i aria-hidden="true"></i><span>ocadox<b>.</b></span></a>
+    <a class="brand" href="#top" aria-label="Ocadox, back to top"><i aria-hidden="true"></i><span>ocadox<b>.</b></span></a>
     <ul>
-      <li class="hide-sm"><a href="#quiet">How it works</a></li>
-      <li class="hide-sm"><a href="#bots">Bots</a></li>
-      <li class="hide-sm"><a href="#phone">Phone</a></li>
+      <li class="hide-sm"><a href="#quiet">Quiet</a></li>
+      <li class="hide-sm"><a href="#features">Features</a></li>
+      <li class="hide-sm hide-md"><a href="#private">Privacy</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li class="hide-sm"><a href="#faq">FAQ</a></li>
-      <li class="hide-sm"><a href="help.html">Help</a></li>
+      <li class="hide-sm hide-md"><a href="#faq">FAQ</a></li>
       <li><a class="cta" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a></li>
     </ul>
   </nav>
@@ -163,207 +227,277 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
 <main id="main">
 
-<section class="hero" aria-labelledby="hero-title">
-  <div class="wrap hero-grid">
-    <div>
-      <h1 id="hero-title">Run local AI. Your fans stop <em class="hl">screaming</em>.</h1>
-      <p class="lead">Local models run your PC flat out, and the fans roar the whole time. Ocadox runs a coding agent and bots on your own PC with Ollama, and watches the heat while they work: it paces the work and holds the power down, so the fans stay at normal speed. With a graphics card or just the processor. Check on your bots from your phone.</p>
-      <div class="btns">
-        <a class="btn primary" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download free</a>
-        <a class="btn" href="#pricing">Pro: try it free for 7 days</a>
-      </div>
-      <div class="chips" aria-label="Works on">
-        <span>Windows 10/11</span><span>Linux</span><span>Android app</span><span>NVIDIA, AMD, Intel</span><span>No graphics card needed</span><span>No account</span>
-      </div>
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap">
+    <span class="eyebrow">Local AI for Windows and Linux</span>
+    <h1 id="hero-title">The local AI<br>of the <span class="hl">future</span>.</h1>
+    <p class="lead"><strong>Your fans stop screaming.</strong> A private coding agent, bots, images, video and voice on your own PC, with Ollama. Ocadox watches the heat while they work and holds the power down, so the fans stay at normal speed. With a graphics card or just the processor.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download free</a>
+      <a class="btn" href="https://kennethyork.gumroad.com/l/wggyib">Get Pro, $79 once</a>
     </div>
-    <div class="visual">
-      <img class="shot" src="img/app.png" width="1600" height="900" alt="Ocadox on a PC: a bot named Tess ran the tests (all 12 pass), with the live GPU temperature, power and fan charts next to it.">
-      <div class="phone"><img src="img/phone-bots.png" width="780" height="1688" alt="The Ocadox Android app: four bots on DESKTOP-PC, one working, one waiting for approval, one done."></div>
-      <div class="badge-float" aria-hidden="true"><i></i><span>GPU peaked at <b>58&deg;C</b>, fans at 31%</span></div>
+    <p class="hero-note">Launch price: $79, going up to $99 later. Or try Pro free for 7 days in the app. No account, no card.</p>
+    <ul class="meta" aria-label="Works on">
+      <li>Windows 10/11</li><li>Linux</li><li>Android app</li><li>NVIDIA, AMD, Intel</li><li>No graphics card needed</li>
+    </ul>
+    <div class="stage">
+      <img class="shot" src="img/app.png" width="1600" height="900" fetchpriority="high" alt="Ocadox on a PC: a bot named Tess ran the tests (all 12 pass), with the live GPU temperature, power and fan charts next to it.">
     </div>
   </div>
 </section>
+
+<hr class="rule">
 
 <section id="quiet" aria-labelledby="quiet-title">
-  <div class="wrap split">
-    <div>
-      <span class="eyebrow">The fan guard</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Quiet by design</span>
       <h2 id="quiet-title">Why your fans scream, and how Ocadox stops it</h2>
-      <p class="lead">A coding agent keeps a model generating for minutes at a time, flat out, and your fans ramp up to match. Other local AI apps let the heat build. Ocadox paces the work and lowers the power while it generates, then puts everything back.</p>
-      <ol class="steps">
-        <li><strong>The agent takes a step:</strong> it reads a file, writes code or runs a command.</li>
-        <li><strong>Ocadox checks the temperature</strong> of the graphics card, or the processor in CPU mode. Above your target (60&nbsp;&deg;C by default for a graphics card), it waits.</li>
-        <li><strong>It cools, then work continues.</strong> No admin rights, no driver tweaks.</li>
-      </ol>
+      <p class="lead">An agent keeps a model generating for minutes at a time, flat out, and the fans ramp up to match. Other local AI apps let the heat build. Ocadox paces the work and lowers the power while it generates, then puts everything back.</p>
     </div>
-    <div class="grid two">
-      <div class="card"><h3>Live GPU panel</h3><p>Temperature, fan, power and load while you work, and a card after every run: how hot it got, how loud, how many watts.</p></div>
-      <div class="card"><h3>Any GPU</h3><p>NVIDIA, AMD and Intel graphics, on Windows and Linux. NVIDIA gets the most detail.</p></div>
-      <div class="card"><h3>Power cap <span class="tag">Optional</span></h3><p>Lower the power only while a model generates, for even less heat: watts on NVIDIA cards, turbo boost or the power limit on the processor.</p></div>
-      <div class="card"><h3>No graphics card? CPU mode</h3><p>Office desktops and laptops run models on the processor. Ocadox notices, asks the model for less, and keeps the processor cool too.</p></div>
-      <div class="card"><h3>Quiet hours <span class="tag">Pro</span></h3><p>Queue big jobs for the night with Night Shift, and see the energy they used.</p></div>
-      <div class="card"><h3>Silent, Balanced or Turbo</h3><p>Pick how hard it works. Silent paces the reply and eases off as it nears 65&nbsp;&deg;C; Turbo goes flat out when you're out of the room.</p></div>
+
+    <ol class="steps">
+      <li><strong>The agent takes a step.</strong>It reads a file, writes code or runs a command.</li>
+      <li><strong>Ocadox checks the temperature.</strong>Of the graphics card, or the processor in CPU mode. Above your target (60&nbsp;&deg;C by default for a graphics card), it waits.</li>
+      <li><strong>It cools, then work continues.</strong>No admin rights, no driver tweaks.</li>
+    </ol>
+
+    <div class="cols">
+      <div class="item"><h3>Silent, Balanced or Turbo</h3><p>Pick how hard it works. Silent paces the reply and eases off as the card nears 65&nbsp;&deg;C, Balanced at 75&nbsp;&deg;C; Turbo goes flat out when you're out of the room.</p></div>
+      <div class="item"><h3>Power cap <span class="tag dim">Optional</span></h3><p>Lower the power only while a model generates: watts on NVIDIA cards, turbo boost or the power limit on the processor.</p></div>
+      <div class="item"><h3>No graphics card? CPU mode</h3><p>Office desktops and laptops run models on the processor. Ocadox notices, asks the model for less, and keeps the processor cool too.</p></div>
+      <div class="item"><h3>Live thermal panel</h3><p>Temperature, fan, power and load while you work, and a card after every run: how hot it got, how loud, how many watts.</p></div>
+      <div class="item"><h3>Any GPU</h3><p>NVIDIA, AMD and Intel graphics, on Windows and Linux. NVIDIA gets the most detail.</p></div>
+      <div class="item"><h3>Night Shift <span class="tag">Pro</span></h3><p>Queue big jobs for quiet hours, and see the energy they used.</p></div>
     </div>
   </div>
 </section>
 
-<section id="quiet-week" aria-labelledby="week-title">
+<section id="quiet-week" aria-labelledby="week-title" style="padding-top:0">
   <div class="wrap split">
     <div>
-      <span class="eyebrow">Your quiet week <span class="tag">New</span></span>
-      <h2 id="week-title">See how quiet it stayed, and share it</h2>
-      <p class="lead">Once a week, Ocadox adds it up: how long it worked for you, how much of that time the fans stayed quiet, the hottest it got, and the energy it used. One click turns it into a card to post.</p>
+      <span class="eyebrow">Your quiet week &middot; free</span>
+      <h2 id="week-title">See how quiet it stayed</h2>
+      <p class="lead">Once a week, Ocadox adds it up: how long it worked for you, how much of that time the fans stayed quiet, the hottest it got, and the energy it used. One click turns it into a card to share.</p>
       <ul class="list">
-        <li><b>Counts only Ocadox's own work:</b> chats, the agent and bots, not your games.</li>
-        <li><b>On a graphics card or the processor:</b> in CPU mode it uses the processor's temperature and power.</li>
-        <li><b>Free</b>, in the thermals panel.</li>
+        <li><b>Only Ocadox's own work:</b> chats, the agent and bots, not your games.</li>
+        <li><b>Graphics card or processor:</b> in CPU mode it uses the processor's temperature and power.</li>
       </ul>
     </div>
     <figure style="margin:0">
       <img class="shot" src="img/quiet-week.webp" width="1200" height="630" loading="lazy" alt="An Ocadox quiet week card: 6 h 25 min of local AI, fans loud for 4 minutes, 99% quiet, peak 63 degrees, 1.2 kWh, on an RTX 3090.">
-      <figcaption class="small" style="margin-top:8px">An example card. Yours shows your own week.</figcaption>
+      <figcaption class="small" style="margin-top:12px">An example card. Yours shows your own week.</figcaption>
     </figure>
   </div>
 </section>
 
-<section id="agent" aria-labelledby="agent-title">
+<hr class="rule">
+
+<section id="features" aria-labelledby="features-title">
   <div class="wrap">
-    <span class="eyebrow">Free, and complete</span>
-    <h2 id="agent-title">A real coding agent, on your machine</h2>
-    <p class="lead">Everything runs through Ollama on your own computer. The free app has no time limit: it's the whole agent.</p>
-    <div class="grid">
-      <div class="card"><h3>Works in your project</h3><p>Reads, edits and searches files, runs commands with your OK, uses git, and browses the web only if you turn that on. Each chat stays in its folder.</p></div>
-      <div class="card"><h3>Any model, in the app</h3><p>Download from the Ollama library or any GGUF on Hugging Face, labelled by whether it fits your GPU.</p></div>
-      <div class="card"><h3>Long chats that hold up</h3><p>Older turns are summarised automatically, so the agent keeps track of the task.</p></div>
-      <div class="card"><h3>Helpers, one at a time <span class="tag">New</span></h3><p>The agent hands a question to a helper with a fresh, empty context, which keeps long tasks on track on local models. Helpers run one at a time on the same model, so the fans stay calm.</p></div>
-      <div class="card"><h3>Checks its own work <span class="tag">New</span></h3><p>Before it says it's done, the agent runs your project's check (cargo check, tsc, go build, Python) and fixes what it finds. Set your own with a <code>Check:</code> line in AGENTS.md.</p></div>
-      <div class="card"><h3>Tries your web app <span class="tag">New</span></h3><p>It opens your app in a hidden browser, clicks and types, and reads the page and its console errors, so it can test what it builds.</p></div>
-      <div class="card"><h3>Hooks and project rules</h3><p>Follows AGENTS.md or OCADOX.md. Add <code>After edit: npx prettier --write {file}</code> and it runs after every edit.</p></div>
-      <div class="card"><h3>From the terminal</h3><p><code>ocadox run "fix the failing tests"</code> runs the agent without the window, in a script or a scheduled job.</p></div>
-      <div class="card"><h3>Make videos <span class="tag">New</span></h3><p><code>/video_create</code> a short clip from a description, or press Animate under any image. Wan 2.2, on your graphics card.</p></div>
-      <div class="card"><h3>Speak in your voice <span class="tag">New</span></h3><p>Give it 10 seconds of your voice, then <code>/speak</code> anything. Qwen3-TTS, on your PC. Only your own voice, or one you have permission for.</p></div>
-      <div class="card"><h3>Posts for you <span class="tag">New</span></h3><p>The Poster writes and schedules posts to Bluesky, Mastodon, Discord, Slack, X and Reddit. Bots can draft them for your OK. <a href="#poster">More</a></p></div>
-      <div class="card"><h3>Make images, built in <span class="tag">New</span></h3><p>Type <code>/image_create</code> and what you want. Z-Image Turbo runs on your PC, about a minute per image on a good graphics card. One click to set up; no other app to install.</p></div>
-      <div class="card"><h3>Talk instead of type</h3><p>Click the microphone and speak. Whisper turns it into text on your PC; nothing is sent anywhere.</p></div>
-      <div class="card"><h3>Saved, searchable chats</h3><p>Every conversation is kept on your computer and can be searched.</p></div>
-      <div class="card"><h3>You stay in charge</h3><p>The agent asks before running commands, and can only touch the folder you choose.</p></div>
+    <div class="head center" style="margin-left:auto;margin-right:auto">
+      <span class="eyebrow">What it does</span>
+      <h2 id="features-title">Everything runs on your PC</h2>
+      <p class="lead">Through Ollama, on your own computer. The free app has no time limit: it's the whole agent.</p>
+    </div>
+
+    <!-- Agent & bots -->
+    <div class="group" id="agent" aria-labelledby="agent-title">
+      <div>
+        <span class="num">01</span>
+        <h3 id="agent-title" style="font-size:clamp(1.4rem,3vw,1.8rem)">A coding agent, and bots that keep going</h3>
+        <p class="lead">The agent works in your project folder and asks before it runs anything. A bot has its own name and face, chat, folder and model: give it a job and close the window, and the result is waiting when you look again.</p>
+        <figure>
+          <img class="shot" src="img/templates.png" width="1600" height="900" loading="lazy" alt="Making a new bot in Ocadox from templates: Test watcher, Code reviewer, Dependency checker, Weekly summary and Folder tidier.">
+        </figure>
+      </div>
+      <div class="sub" id="bots">
+        <div><h3>Works in your project</h3><p>Reads, edits and searches files, runs commands with your OK, uses git, and browses the web only if you turn that on. Each chat stays in its folder.</p></div>
+        <div><h3>Any model, in the app</h3><p>From the Ollama library or any GGUF on Hugging Face, labelled by whether it fits your GPU.</p></div>
+        <div><h3>Checks its own work</h3><p>Runs your project's check (cargo check, tsc, go build, Python) before it says it's done, and tries your web app in a hidden browser, console errors and all.</p></div>
+        <div><h3>Helpers, one at a time</h3><p>Hands a question to a helper with a fresh, empty context, which keeps long tasks on track on local models, and the fans calm.</p></div>
+        <div><h3>Rules, hooks, terminal</h3><p>Follows AGENTS.md or OCADOX.md, runs <code>After edit:</code> hooks, and <code>ocadox run "fix the failing tests"</code> works without the window.</p></div>
+        <div><h3>Talk, or type, for hours</h3><p>Whisper turns your voice into text on your PC. Long chats are summarised as they grow, saved, and searchable.</p></div>
+        <div class="wide panel">
+          <h3>Bots</h3>
+          <ul class="list" style="margin-top:12px">
+            <li><b>Templates:</b> test watcher, code reviewer, dependency checker, weekly summary, folder tidier, or your own. <span class="tag dim">Free</span></li>
+            <li><b>They take turns on the GPU,</b> so several bots never make it roar. <span class="tag dim">Free</span></li>
+            <li><b>Routines:</b> "every weekday at 8:00, run the tests and tell me what broke". Ocadox starts with Windows and can wake the PC for them. <span class="tag">Pro</span></li>
+            <li><b>Results come to you</b> as a notification, and can be saved as files. <span class="tag">Pro</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create -->
+    <div class="group" id="create" aria-labelledby="create-title">
+      <div>
+        <span class="num">02</span>
+        <h3 id="create-title" style="font-size:clamp(1.4rem,3vw,1.8rem)">Create, edit and record</h3>
+        <p class="lead">Set each one up once in Settings, with no other app to install. The models run on your PC, and what you make is saved there.</p>
+      </div>
+      <div class="sub">
+        <div><h3>Images</h3><p>Type <code>/image_create</code> and what you want. Z-Image Turbo, about a minute per image on a good graphics card.</p></div>
+        <div><h3>Video</h3><p><code>/video_create</code> a clip from a description, or press Animate under any image. Wan 2.2, on your graphics card, with the fan guard and power cap on.</p></div>
+        <div><h3>Speak in your voice</h3><p>Add a short recording of your voice, then <code>/speak</code> anything. Qwen3-TTS, on your PC. Only your own voice, or one you have permission for.</p></div>
+        <div class="panel new"><h3>Longer videos <span class="tag">New</span></h3><p>Choose the length, from 2 seconds to 2 minutes, made as chained 5-second parts. One line per scene makes a storyboard. Saved as MP4.</p></div>
+        <div class="wide panel new"><h3>Voice-over <span class="tag">New</span></h3><p>Pick any video and write a script, or have your local model draft it. Ocadox speaks it in your own saved voice and adds it to the video as an MP4, with captions if you want them.</p></div>
+        <div class="panel new"><h3>Edit by asking <span class="tag">New</span></h3><p>Under any picture, say what to change ("make it night", "change the sign to SALE"), or upscale it 4x. FLUX.2 klein and Real-ESRGAN, on your PC.</p></div>
+        <div class="panel new"><h3>Quick video edits <span class="tag">New</span></h3><p>Describe it ("vertical for TikTok, cut the first 2 seconds, text at the top") and your local model fills in the trim, shape, music and text. Saved as an MP4.</p></div>
+        <div class="panel new"><h3>Record a website <span class="tag">New</span></h3><p>A smooth scroll through any page, desktop or phone sized, in a private browser. Add a voice-over and you have a demo video.</p></div>
+        <div class="panel new"><h3>On autopilot <span class="tag">New</span></h3><p>Bots can do all of it: "every Monday, record my site, make it vertical, voice it over and draft a post". Heavy steps ask first.</p></div>
+      </div>
+    </div>
+
+    <!-- Post -->
+    <div class="group" id="poster" aria-labelledby="poster-title">
+      <div>
+        <span class="num">03</span>
+        <h3 id="poster-title" style="font-size:clamp(1.4rem,3vw,1.8rem)">The Poster: write it, schedule it, post it</h3>
+        <p class="lead">A social media scheduler built in, without the monthly bill. Draft with your local model, attach a picture, a video or your quiet week card, pick the accounts and a time. Straight from your PC to each platform; no Ocadox server in between.</p>
+      </div>
+      <div class="sub">
+        <div><h3>Six places</h3><p>Bluesky, Mastodon, Discord, Slack, X and Reddit, each with its own length limit shown as you write.</p></div>
+        <div><h3>Your accounts, your keys</h3><p>App passwords, tokens and webhooks stay on your PC, never on a server.</p></div>
+        <div><h3>Bots that post</h3><p>"Every Monday, post what we shipped": a bot routine drafts it, you approve it (or let it post, with Pro).</p></div>
+        <div><h3>You stay in charge</h3><p>Drafts wait in a queue until you approve them, and Reddit posts always do.</p></div>
+        <p class="wide small" style="margin:0"><b style="color:var(--text)">Free:</b> 1 brand, 20 posts a month, to Bluesky, Mastodon, Discord and Slack. <b style="color:var(--text)">Pro:</b> 5 brands, 100 posts a month, plus X and Reddit.</p>
+      </div>
+    </div>
+
+    <!-- Characters -->
+    <div class="group" id="characters" aria-labelledby="characters-title">
+      <div>
+        <span class="num">04</span>
+        <h3 id="characters-title" style="font-size:clamp(1.4rem,3vw,1.8rem)">AI influencers <span class="tag">New</span></h3>
+        <p class="lead">Make a character with a face that stays the same, a personality and a voice. Put them anywhere, bring photos to life, make them talk, and post as them through the Poster. All on your PC.</p>
+      </div>
+      <div class="sub">
+        <div><h3>A face that stays</h3><p>Describe them once. New photos in any scene ("at a café in Lisbon", "hiking at sunrise") keep the same person.</p></div>
+        <div><h3>Photos, videos, voice</h3><p>Turn a photo into a video, give it their voice, and let your local model write captions in their personality.</p></div>
+        <div><h3>Labelled as AI</h3><p>Posts carry an "AI-generated character" label by default, as platforms and advertising rules expect. Real people's faces need their permission.</p></div>
+        <div><h3>On a schedule</h3><p>A bot can post a new photo of your character every day. Drafts wait for your OK, or post on their own with Pro.</p></div>
+        <p class="wide small" style="margin:0"><b style="color:var(--text)">Free:</b> 1 character. <b style="color:var(--text)">Pro:</b> 5 characters. Videos post to Mastodon, Discord and Bluesky.</p>
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="group" id="phone" aria-labelledby="phone-title">
+      <div>
+        <span class="num">05</span>
+        <h3 id="phone-title" style="font-size:clamp(1.4rem,3vw,1.8rem)">Your bots, on your phone</h3>
+        <p class="lead">Keep your bots on an always-on PC and check on them from anywhere. The free Android app connects straight to your own computers: no cloud in between.</p>
+        <div class="phones">
+          <div class="phone"><img src="img/phone-bots.png" width="780" height="1688" loading="lazy" alt="The Android app's list of bots on a PC: one working, one waiting for approval, one done."></div>
+          <div class="phone"><img src="img/phone-approve.png" width="780" height="1688" loading="lazy" alt="A bot asking for approval to make a git commit, with Approve and Decline buttons."></div>
+        </div>
+      </div>
+      <div>
+        <ul class="list" style="margin-top:0">
+          <li><b>All your computers,</b> Windows or Linux, in one list. Add each one by scanning a QR code.</li>
+          <li><b>See what every bot is doing,</b> chat with it, stop it, and approve or decline its steps.</li>
+          <li><b>Notifications</b> when a bot finishes, needs your OK, or hits a problem.</li>
+          <li><b>Chats:</b> read your PC's chats, or start a quick chat with its model.</li>
+          <li>Works on your Wi-Fi, or away from home with <a href="https://tailscale.com">Tailscale</a> (free). Encrypted, and pinned to your PC.</li>
+        </ul>
+        <p class="small" style="margin-top:24px">The app is free; the PC it connects to needs Ocadox Pro (or the trial). A laptop can connect the same way.</p>
+        <div class="btns" style="margin-top:20px"><a class="btn" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Get the Android app (.apk)</a></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="bots" aria-labelledby="bots-title">
-  <div class="wrap split flip">
-    <div>
-      <span class="eyebrow">Bots</span>
-      <h2 id="bots-title">Agents you come back to</h2>
-      <p class="lead">A bot has its own name and face, chat, project folder and model. Give it a job and close the window: it keeps going, and the result is waiting when you look again.</p>
-      <ul class="list">
-        <li><b>Start from a template:</b> test watcher, code reviewer, dependency checker, weekly summary, folder tidier. Or make your own. <span class="tag">Free</span></li>
-        <li><b>They take turns on the GPU,</b> so several bots never make it roar. <span class="tag">Free</span></li>
-        <li><b>Routines:</b> "every weekday at 8:00, run the tests and tell me what broke". Ocadox starts with Windows and can wake the PC for them. <span class="tag">Pro</span></li>
-        <li><b>Results come to you</b> as a notification, and can be saved as files. <span class="tag">Pro</span></li>
-      </ul>
-    </div>
-    <img class="shot" src="img/templates.png" width="1600" height="900" alt="Making a new bot in Ocadox from templates: Test watcher, Code reviewer, Dependency checker, Weekly summary and Folder tidier.">
-  </div>
-</section>
+<hr class="rule">
 
-<section id="poster" aria-labelledby="poster-title">
-  <div class="wrap split flip">
-    <div>
-      <span class="eyebrow">The Poster <span class="tag">New</span></span>
-      <h2 id="poster-title">Write it, schedule it, post it everywhere</h2>
-      <p class="lead">A social media scheduler built in, like Metricool, without the monthly bill. Draft with your local model, attach an image or your quiet week card, pick the accounts and a time. Straight from your PC to each platform; no Ocadox server in between.</p>
-      <ul class="list">
-        <li><b>Free:</b> 1 brand, 20 posts a month, to Bluesky, Mastodon, Discord and Slack. Bots draft posts for your OK.</li>
-        <li><b>Pro:</b> 5 brands, 100 posts a month, plus X and Reddit, and bots that post on their own where you allow it.</li>
-        <li><b>You stay in charge:</b> drafts wait in a queue until you approve them, and Reddit posts always do.</li>
-      </ul>
-    </div>
-    <div class="grid two">
-      <div class="card"><h3>Six places</h3><p>Bluesky, Mastodon, Discord, Slack, X and Reddit, each with its own length limit shown as you write.</p></div>
-      <div class="card"><h3>Your accounts, your keys</h3><p>App passwords, tokens and webhooks stay on your PC, never on a server.</p></div>
-      <div class="card"><h3>Bots that post</h3><p>"Every Monday, post what we shipped": a bot routine drafts it, you approve it (or let it post, with Pro).</p></div>
-      <div class="card"><h3>One price</h3><p>Pro is $79 once. Scheduling tools often charge that every few months.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="phone" aria-labelledby="phone-title">
-  <div class="wrap split">
-    <div>
-      <span class="eyebrow">Android app &middot; free</span>
-      <h2 id="phone-title">Your bots, on your phone</h2>
-      <p class="lead">Keep your bots on an always-on PC and check on them from anywhere. The Ocadox Android app connects straight to your own computers: no cloud in between.</p>
-      <ul class="list">
-        <li><b>All your computers,</b> Windows or Linux, in one list. Add each one by scanning a QR code.</li>
-        <li><b>See what every bot is doing,</b> chat with it, stop it, and <b>approve or decline its steps</b>.</li>
-        <li><b>Notifications</b> when a bot finishes, needs your OK, or hits a problem.</li>
-        <li><b>Chats:</b> read your PC's chats, or start a quick chat with its model.</li>
-        <li>Works on your Wi-Fi, or away from home with <a href="https://tailscale.com">Tailscale</a> (free). Encrypted, and pinned to your PC.</li>
-      </ul>
-      <p class="small" style="margin-top:16px">The app is free; the PC it connects to needs Ocadox Pro (or the trial). A laptop can connect the same way.</p>
-      <div class="btns"><a class="btn" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Get the Android app (.apk)</a></div>
-    </div>
-    <div class="phones">
-      <div class="phone"><img src="img/phone-bots.png" width="780" height="1688" alt="The Android app's list of bots on a PC, each with what it is doing."></div>
-      <div class="phone"><img src="img/phone-approve.png" width="780" height="1688" alt="A bot asking for approval to make a git commit, with Approve and Decline buttons."></div>
-    </div>
-  </div>
-</section>
-
-<section id="compare" aria-labelledby="compare-title">
+<section id="private" aria-labelledby="private-title">
   <div class="wrap">
-    <h2 id="compare-title">Free vs Pro</h2>
-    <p class="lead">Free is the whole local agent with a quiet GPU. Pro keeps bots working around the clock, puts them on your laptop and phone, and adds safety nets and power tools.</p>
+    <div class="head">
+      <span class="eyebrow">Private</span>
+      <h2 id="private-title">Your work stays on your machine</h2>
+      <p class="lead">Ocadox has no servers and no account. It talks to Ollama on your own computer, and your devices talk to each other directly.</p>
+    </div>
+    <div class="cols four">
+      <div class="item"><h3>Local models</h3><p>Models run on your PC through Ollama. Cloud models (Ollama's, or your own API key) are optional, clearly marked, and can be hidden.</p></div>
+      <div class="item"><h3>Web is opt-in</h3><p>Web tools only run when you turn them on.</p></div>
+      <div class="item"><h3>You approve commands</h3><p>The agent asks before running anything, and can only touch the folder you choose.</p></div>
+      <div class="item"><h3>Phone to PC, directly</h3><p>Encrypted, pinned to your PC, nothing in between.</p></div>
+    </div>
+    <p class="small" style="margin-top:44px">The details: <a href="privacy.html">privacy</a>.</p>
+  </div>
+</section>
+
+<section id="compare" aria-labelledby="compare-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Free vs Pro</span>
+      <h2 id="compare-title">Free is the whole agent. Pro keeps it working.</h2>
+      <p class="lead">Pro keeps bots working around the clock, puts them on your laptop and phone, and adds safety nets and power tools.</p>
+    </div>
     <div class="table-wrap">
       <table>
         <caption>Feature comparison between Ocadox Free and Ocadox Pro</caption>
         <thead><tr><th scope="col">Feature</th><th scope="col" class="c">Free</th><th scope="col" class="c">Pro</th></tr></thead>
         <tbody>
-          <tr class="group"><th scope="rowgroup" colspan="3">The agent</th></tr>
+          <tr class="sect"><th scope="rowgroup" colspan="3">Quiet</th></tr>
+          <tr><th scope="row">Fan guard, power cap and live GPU panel</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Night Shift: queue tasks for quiet hours</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Quiet benchmark, energy report</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+
+          <tr class="sect"><th scope="rowgroup" colspan="3">The agent</th></tr>
           <tr><th scope="row">Chat and the full coding agent, all tools</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Model downloads (Ollama and Hugging Face)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Fan guard, power cap and live GPU panel</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Helpers, self-checks, hooks, a browser for the agent, the terminal</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Saved, searchable chats</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Voice dictation (Whisper, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Image creation, built in (Z-Image Turbo, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Helpers, self-checks, hooks, a browser for the agent, the terminal</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Optional cloud models with your own API key</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Video creation (Wan 2.2) and speech in your voice (Qwen3-TTS), on your PC</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr class="group"><th scope="rowgroup" colspan="3">The Poster</th></tr>
-          <tr><th scope="row">Brands and published posts a month</th><td class="c">1 &middot; 20</td><td class="c yes">5 &middot; 100</td></tr>
-          <tr><th scope="row">Bluesky, Mastodon, Discord, Slack</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">X and Reddit</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Bots draft posts for your OK / post on their own</th><td class="c">Draft only</td><td class="c yes">Both</td></tr>
-          <tr class="group"><th scope="rowgroup" colspan="3">Bots</th></tr>
+          <tr><th scope="row">Custom agents (own instructions, model, power cap)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Semantic code search (local embeddings)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">MCP servers, and Ollama on another computer</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Chat export</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+
+          <tr class="sect"><th scope="rowgroup" colspan="3">Safety nets</th></tr>
+          <tr><th scope="row">Checkpoints: per-file diff review and one-click undo</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Agent branches (own git worktree, merge or discard)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Auto-approve rules</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+
+          <tr class="sect"><th scope="rowgroup" colspan="3">Bots and your other devices</th></tr>
           <tr><th scope="row">Bots with their own chat, folder and model, and templates</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Standing instructions for each bot</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Routines (scheduled tasks, can wake the PC), results saved as files</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Always on: starts with Windows, in the tray</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Use a PC's bots and chats from your laptop or the Android app</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr class="group"><th scope="rowgroup" colspan="3">Safety nets</th></tr>
-          <tr><th scope="row">Checkpoints: per-file diff review and one-click undo</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Agent branches (own git worktree, merge or discard)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Auto-approve rules</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr class="group"><th scope="rowgroup" colspan="3">Power tools</th></tr>
-          <tr><th scope="row">Custom agents (own instructions, model, power cap)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Night Shift: queue tasks for quiet hours</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Semantic code search (local embeddings)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">MCP servers, and Ollama on another computer</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+
+          <tr class="sect"><th scope="rowgroup" colspan="3">Create</th></tr>
+          <tr><th scope="row">Image creation, built in (Z-Image Turbo, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Video creation (Wan 2.2) and speech in your voice (Qwen3-TTS), on your PC</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Longer videos (up to 2 minutes) and voice-overs <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Edit pictures by asking, upscale, quick video edits, record websites <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">AI influencers (characters) <span class="tag">New</span></th><td class="c">1</td><td class="c yes">5</td></tr>
           <tr><th scope="row">Transcribe audio and video files, with timestamps</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Quiet benchmark, energy report, chat export</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+
+          <tr class="sect"><th scope="rowgroup" colspan="3">The Poster</th></tr>
+          <tr><th scope="row">Brands and published posts a month</th><td class="c">1 &middot; 20</td><td class="c yes">5 &middot; 100</td></tr>
+          <tr><th scope="row">Bluesky, Mastodon, Discord, Slack</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">X and Reddit</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Bots draft posts for your OK / post on their own</th><td class="c">Draft only</td><td class="c yes">Both</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
+<hr class="rule">
+
 <section id="pricing" aria-labelledby="pricing-title">
   <div class="wrap">
-    <h2 id="pricing-title">Pricing</h2>
+    <div class="head center" style="margin-left:auto;margin-right:auto">
+      <span class="eyebrow">Pricing</span>
+      <h2 id="pricing-title">Free to start. Pro once, for life.</h2>
+      <p class="lead">No subscription.</p>
+    </div>
     <div class="plans">
-      <div class="card plan">
+      <div class="plan">
         <h3>Ocadox Free</h3>
         <p class="price">$0</p>
         <ul>
@@ -371,13 +505,15 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <li>Fan guard, power cap and live GPU panel</li>
           <li>Bots with templates</li>
           <li>Model downloads, saved chats, voice</li>
+          <li>Images, video and speech on your PC</li>
           <li>No time limit, no account</li>
         </ul>
         <div class="btns"><a class="btn" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a></div>
       </div>
-      <div class="card plan pro">
+      <div class="plan pro">
         <h3>Ocadox Pro <span class="tag">Lifetime</span></h3>
         <p class="price">$79<small>once</small></p>
+        <p class="launch">Launch price. It goes up to $99 later; if you buy now, you keep every update.</p>
         <ul>
           <li>Everything in Free, plus every Pro feature above</li>
           <li>Routines, always on, and your bots on your laptop and phone</li>
@@ -386,79 +522,66 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <li><a href="refunds.html">30-day refund</a>, no questions asked</li>
         </ul>
         <div class="btns"><a class="btn primary" href="https://kennethyork.gumroad.com/l/wggyib">Buy Ocadox Pro</a></div>
-        <p class="small" style="margin:12px 0 0">No subscription. Checkout by Gumroad.</p>
+        <p class="small" style="margin:14px 0 0;text-align:center">Checkout by Gumroad.</p>
       </div>
     </div>
-    <div class="trial"><span><b>Try Pro free for 7 days</b> first: in the app, open Settings &rarr; Ocadox Pro. No key or card needed.</span></div>
+    <p class="trial"><b>Try Pro free for 7 days</b> first: in the app, open Settings &rarr; Ocadox Pro. No key or card needed.</p>
+
+    <div class="needs" id="requirements" aria-labelledby="req-title">
+      <h3 id="req-title" class="small" style="text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;margin-bottom:24px">What you need</h3>
+      <div class="cols four">
+        <div><h3>Windows</h3><p>Windows 10 or 11, 64-bit. Installer (.exe) or .msi.</p></div>
+        <div><h3>Linux</h3><p>64-bit: AppImage, .deb or .rpm.</p></div>
+        <div><h3>Android</h3><p>Android 8 or later, for the companion app.</p></div>
+        <div><h3>Ollama</h3><p>Free. Ocadox offers to install it on Windows.</p></div>
+      </div>
+      <p class="small" style="margin-top:24px">Any NVIDIA, AMD or Intel GPU works with the fan guard. A GPU with 8&nbsp;GB of VRAM or more runs good agent models; Ocadox suggests one that fits yours. No graphics card? CPU mode runs small models (3 to 4B) on the processor, slower but quiet.</p>
+    </div>
   </div>
 </section>
 
-<section id="private" aria-labelledby="private-title">
-  <div class="wrap">
-    <h2 id="private-title">Your code stays on your machine</h2>
-    <p class="lead">Ocadox has no servers and no account. It talks to Ollama on your own computer, and your devices talk to each other directly.</p>
-    <div class="grid four">
-      <div class="card"><h3>Local models</h3><p>Models run on your PC through Ollama. Cloud models (Ollama's, or your own API key) are optional, clearly marked, and can be hidden.</p></div>
-      <div class="card"><h3>Web is opt-in</h3><p>Web tools only run when you turn them on.</p></div>
-      <div class="card"><h3>You approve commands</h3><p>The agent asks before running anything.</p></div>
-      <div class="card"><h3>Phone to PC, directly</h3><p>Encrypted, pinned to your PC, nothing in between.</p></div>
-    </div>
-    <p class="small" style="margin-top:16px">The details: <a href="privacy.html">privacy</a>.</p>
-  </div>
-</section>
-
-<section id="requirements" aria-labelledby="req-title">
-  <div class="wrap">
-    <h2 id="req-title">What you need</h2>
-    <div class="grid four">
-      <div class="card"><h3>Windows</h3><p>Windows 10 or 11, 64-bit. Installer (.exe) or .msi.</p></div>
-      <div class="card"><h3>Linux</h3><p>64-bit: AppImage, .deb or .rpm.</p></div>
-      <div class="card"><h3>Android</h3><p>Android 8 or later, for the companion app.</p></div>
-      <div class="card"><h3>Ollama</h3><p>Free. Ocadox offers to install it on Windows.</p></div>
-    </div>
-    <p class="small" style="margin-top:16px">Any NVIDIA, AMD or Intel GPU works with the fan guard. A GPU with 8&nbsp;GB of VRAM or more runs good agent models; Ocadox suggests one that fits yours. No graphics card? CPU mode runs small models (3 to 4B) on the processor, slower but quiet.</p>
-  </div>
-</section>
+<hr class="rule">
 
 <section id="faq" aria-labelledby="faq-title">
   <div class="wrap">
-    <h2 id="faq-title">FAQ</h2>
-    <details>
-      <summary>Is it really free?</summary>
-      <p>Yes. Chat, the full coding agent with every tool, bots, model downloads, the fan guard, the power cap, voice and saved chats are free, with no time limit. Ocadox Pro is an optional one-time purchase, and you can try it free for 7 days first.</p>
-    </details>
-    <details>
-      <summary>Do I need Ollama?</summary>
-      <p>Yes. Ollama runs the models. If you don't have it, Ocadox offers to install it on first launch (or get it from <a href="https://ollama.com">ollama.com</a>). You then download and manage models from inside Ocadox.</p>
-    </details>
-    <details>
-      <summary>Which GPUs work?</summary>
-      <p>NVIDIA, AMD and Intel, on Windows and Linux. The fan guard reads the GPU temperature on all of them. NVIDIA cards (and AMD on Linux) also show fan, power and load in the live panel; AMD and Intel on Windows show temperature and fan speed. The optional power cap is for NVIDIA cards. No graphics card at all? CPU mode turns on by itself and keeps the processor quiet instead.</p>
-    </details>
-    <details>
-      <summary>Can I use Claude, GPT or other cloud models?</summary>
-      <p>Yes, if you want to, with your own API key (OpenRouter, OpenAI, Anthropic and others) in Settings &gt; Cloud models. It's off until you add a key. Those models are marked CLOUD; when you use one, your messages and the files the agent reads go to that provider, and it bills your account. Everything else stays on your PC.</p>
-    </details>
-    <details>
-      <summary>Can I use Ollama's cloud models?</summary>
-      <p>Yes, if you sign in to Ollama and pull one: they show up in Ocadox with a CLOUD badge. They run on Ollama's servers, not your PC, so your messages and the files the agent reads go to Ollama. Ocadox tells you once before you use one, and Settings can hide them so everything stays on your computer.</p>
-    </details>
-    <details>
-      <summary>Can bots keep working while I'm away?</summary>
-      <p>Yes, while the PC is on. A bot keeps going with the window closed. With Pro, Ocadox starts with Windows in the tray and runs each bot's routines on schedule, waking the PC from sleep if you ask. For bots that work while your laptop is off, keep them on an always-on PC and check in from the laptop or the Android app.</p>
-    </details>
-    <details>
-      <summary>Is connecting my phone or laptop safe?</summary>
-      <p>You pair with a one-time code shown on the PC (a QR code for phones). The code carries the PC's identity, so your device only ever talks to that PC, and the connection is encrypted. A paired device can use the bots and read and start chats, nothing else: no files, settings or shell. You can remove it at any time. Away from home, Tailscale connects them without opening ports on your router.</p>
-    </details>
-    <details>
-      <summary>Does it need admin rights?</summary>
-      <p>No. The fan guard works by pausing the agent until things cool. Only the optional GPU power cap needs administrator rights, and Ocadox asks only if you turn it on. In CPU mode, Windows needs no admin rights at all; Linux asks for your password once.</p>
-    </details>
-    <details>
-      <summary>Is there a Mac or iPhone version?</summary>
-      <p>No. Ocadox is for Windows and Linux PCs, with the companion app on Android.</p>
-    </details>
+    <div class="head center" style="margin-left:auto;margin-right:auto">
+      <span class="eyebrow">FAQ</span>
+      <h2 id="faq-title">Questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Do I need Ollama?</summary>
+        <p>Yes. Ollama runs the models. If you don't have it, Ocadox offers to install it on first launch (or get it from <a href="https://ollama.com">ollama.com</a>). You then download and manage models from inside Ocadox.</p>
+      </details>
+      <details>
+        <summary>Which GPUs work?</summary>
+        <p>NVIDIA, AMD and Intel, on Windows and Linux. The fan guard reads the GPU temperature on all of them. NVIDIA cards (and AMD on Linux) also show fan, power and load in the live panel; AMD and Intel on Windows show temperature and fan speed. The optional power cap is for NVIDIA cards. No graphics card at all? CPU mode turns on by itself and keeps the processor quiet instead.</p>
+      </details>
+      <details>
+        <summary>Can I use cloud models like Claude or GPT, or Ollama's?</summary>
+        <p>Yes, if you want to. Add your own API key (OpenRouter, OpenAI, Anthropic and others) in Settings &gt; Cloud models; it's off until you do. Or sign in to Ollama and pull one of its cloud models. Either way they're marked CLOUD: when you use one, your messages and the files the agent reads go to that provider. Your own key bills your account. Ocadox tells you once before you use an Ollama cloud model, and Settings can hide them so everything stays on your computer.</p>
+      </details>
+      <details>
+        <summary>Can bots keep working while I'm away?</summary>
+        <p>Yes, while the PC is on. A bot keeps going with the window closed. With Pro, Ocadox starts with Windows in the tray and runs each bot's routines on schedule, waking the PC from sleep if you ask. For bots that work while your laptop is off, keep them on an always-on PC and check in from the laptop or the Android app.</p>
+      </details>
+      <details>
+        <summary>Is connecting my phone or laptop safe?</summary>
+        <p>You pair with a one-time code shown on the PC (a QR code for phones). The code carries the PC's identity, so your device only ever talks to that PC, and the connection is encrypted. A paired device can use the bots and read and start chats, nothing else: no files, settings or shell. You can remove it at any time. Away from home, Tailscale connects them without opening ports on your router.</p>
+      </details>
+      <details>
+        <summary>Does it need admin rights?</summary>
+        <p>No. The fan guard works by pausing the agent until things cool. Only the optional GPU power cap needs administrator rights, and Ocadox asks only if you turn it on. In CPU mode, Windows needs no admin rights at all; Linux asks for your password once.</p>
+      </details>
+      <details>
+        <summary>Is there a Mac or iPhone version?</summary>
+        <p>No. Ocadox is for Windows and Linux PCs, with the companion app on Android.</p>
+      </details>
+    </div>
+    <div class="btns center" style="margin-top:72px">
+      <a class="btn primary" href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download free</a>
+      <a class="btn" href="help.html">Read the help</a>
+    </div>
   </div>
 </section>
 
@@ -467,7 +590,17 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 <footer>
   <div class="wrap row">
     <p>&copy; 2026 Ocadox. Built on <a href="https://ollama.com">Ollama</a>.</p>
-    <p><a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a> &middot; <a href="#pricing">Pricing</a> &middot; <a href="help.html">Help</a> &middot; <a href="whats-new.html">What's new</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="refunds.html">Refunds</a> &middot; <a href="licenses.html">Licences</a> &middot; <a href="https://github.com/kennethyork/ocadox-releases/issues/new">Support</a></p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a>
+      <a href="#pricing">Pricing</a>
+      <a href="help.html">Help</a>
+      <a href="whats-new.html">What's new</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="refunds.html">Refunds</a>
+      <a href="licenses.html">Licences</a>
+      <a href="https://github.com/kennethyork/ocadox-releases/issues/new">Support</a>
+    </nav>
     <p>By Kenneth York &middot; also made <a href="https://local-bench.com">LocalBench</a></p>
   </div>
 </footer>
