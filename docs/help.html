@@ -53,7 +53,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#bots">Bots, routines and triggers</a>
     <a href="#sharing">Sharing bots</a>
     <a href="#phone">The phone app</a>
-    <a href="#images">Making images</a>
+    <a href="#images">Making images and videos</a>
+    <a href="#voice">Speaking in your voice</a>
+    <a href="#poster">The Poster</a>
     <a href="#cloud">Cloud models (your own key)</a>
     <a href="#problems">Something's wrong</a>
   </nav>
@@ -129,8 +131,26 @@ After edit: npx prettier --write {file}</code></pre>
   </ol>
   <p><strong>Full control:</strong> next to a paired phone, tick <em>Full control</em> to use the whole desktop app from it, running on the PC. Off, the phone has bots and chats only. <strong>Notifications</strong> work with the app closed (a quiet "Watching your bots" notification keeps it connected; switch it off on the list of computers).</p>
 
-  <h2 id="images">Making images</h2>
+  <h2 id="images">Making images and videos</h2>
   <p>Settings &gt; Image creation &gt; <strong>Set up image creation</strong> downloads an image engine and the Z-Image Turbo model once (6.7&nbsp;GB, every file checked). Then type <code>/image_create</code> and what you want, e.g. <code>/image_create a lighthouse at dusk, oil painting</code>. About a minute per image on a good graphics card. It needs 16&nbsp;GB of memory on a PC without a graphics card. Already run Forge? Put its address in the same settings and Ocadox uses it instead.</p>
+
+  <h3>Videos</h3>
+  <p>Settings &gt; Image creation &gt; <strong>Video creation</strong> downloads the Wan 2.2 video model once (9.4&nbsp;GB). Then <code>/video_create a cat walking through autumn leaves</code> makes a clip of about 2 seconds, or press <strong>Animate</strong> under any generated image to bring it to life. It takes a few minutes and works the graphics card hard, so the fan guard and power cap apply. It needs a graphics card (12&nbsp;GB or more is comfortable).</p>
+
+  <h2 id="voice">Speaking in your voice</h2>
+  <p>Settings &gt; Image creation &gt; <strong>Speech, in your voice</strong> downloads Qwen3-TTS once (2.3&nbsp;GB). Under <strong>Voices</strong>, add a 5&ndash;30 second WAV or MP3 of clear speech, give it a name and confirm it's your voice or you have the person's permission. Then:</p>
+<pre><code>/speak voice=Me Your tests all pass, and the fans stayed quiet.</code></pre>
+  <p>Without <code>voice=</code> it uses your latest voice. Voices stay on your PC. Never use someone's voice without asking them.</p>
+
+  <h2 id="poster">The Poster</h2>
+  <p>The <strong>Poster</strong> button in the top bar writes, schedules and publishes posts.</p>
+  <ol>
+    <li><strong>Accounts:</strong> connect each place, following the short instructions there (Mastodon: type your server and press <strong>Sign in with Mastodon</strong>; the others have a button that opens the right page: Bluesky an app password, Discord and Slack a webhook link, X your developer app's keys, Reddit a "script" app). Press <strong>Test</strong> to check it.</li>
+    <li><strong>Write a post:</strong> type it, or describe it and press <strong>Draft with AI</strong> (your local model). The counter shows the shortest limit among the places you picked (X 280, Bluesky 300). Attach an image, pick the accounts, then <strong>Post now</strong> or set a time and <strong>Schedule</strong>.</li>
+    <li><strong>Queue:</strong> posts waiting for your OK (from bots), scheduled ones, and what went out, with links. Failures can be retried.</li>
+  </ol>
+  <p><strong>Bots:</strong> ask a bot or the agent to "write a post about this release" and it drafts one into the queue. With Pro, tick <em>Bots may post</em> on an account to let them post there without asking (never Reddit, which bans automatic posting). A routine such as "every Monday, post what we shipped" makes it a weekly habit.</p>
+  <p><strong>Limits:</strong> Free has 1 brand and 20 posts a month to Bluesky, Mastodon, Discord and Slack. Pro has 5 brands and 100 posts a month, plus X and Reddit. A post to three accounts counts three; the count resets on the 1st.</p>
 
   <h2 id="cloud">Cloud models (your own key)</h2>
   <p>For the odd task a local model can't handle: Settings &gt; Cloud models, pick a provider (OpenRouter, OpenAI, Anthropic or another OpenAI-compatible one), paste your API key and the model names you want. They appear in the model list marked <strong>CLOUD</strong>. When you use one, your messages and the files the agent reads go to that provider, and it bills your account. The key is kept only on your PC. Off until you add a key.</p>
@@ -138,6 +158,6 @@ After edit: npx prettier --write {file}</code></pre>
   <h2 id="problems">Something's wrong</h2>
   <p>Settings &gt; Help &gt; <strong>Send feedback or report a bug</strong> copies a short report of your setup (system, graphics, memory, CPU mode, Ollama and the loaded models, the last errors) and opens a GitHub form; paste it in and say what happened. It has no names, folders or chats, and you see all of it before sending.</p>
 </main>
-<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a> &middot; <a href="whats-new.html">What's new</a> &middot; <a href="privacy.html">Privacy</a></div></footer>
+<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a> &middot; <a href="whats-new.html">What's new</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="licenses.html">Licences</a></div></footer>
 </body>
 </html>

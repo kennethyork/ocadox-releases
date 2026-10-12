@@ -39,7 +39,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 <main class="wrap">
   <h1>Privacy</h1>
   <p class="lead">Ocadox is built to keep your work on your computer. It has no accounts, no analytics and no tracking, and it does not send your prompts, files, chats or voice anywhere.</p>
-  <p><small>Last updated October 9, 2026.</small></p>
+  <p><small>Last updated October 11, 2026.</small></p>
 
   <div class="card"><p><strong>In short:</strong> models run on your machine through Ollama, speech is turned into text on your machine with Whisper, and your chats, bots and settings are files in your user folder. Ocadox only goes online for the specific things listed below, most of which you start yourself.</p></div>
 
@@ -48,6 +48,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <li>Your chats, bots and their transcripts, routines, settings and checkpoints.</li>
     <li>Everything the agent reads or changes in the project folder you give it.</li>
     <li>Your voice: the microphone is recorded and transcribed locally, and the recording is not kept.</li>
+    <li>Voice samples you add for speech, and the images, videos and speech Ocadox makes.</li>
+    <li>The Poster's accounts: app passwords, tokens and webhooks are kept only on your computer.</li>
     <li>Energy and temperature history, and crash logs.</li>
   </ul>
 
@@ -62,6 +64,10 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
         <tr><td>Updates</td><td>GitHub (ocadox-releases)</td><td>A check for a newer version (the Android app checks each time it opens). GitHub sees your IP address, as with any download.</td></tr>
         <tr><td>Ocadox Pro</td><td>Gumroad</td><td>Your license key, when you activate it and about once a month after, to check it was not refunded. Pro keeps working offline.</td></tr>
         <tr><td>Web tools (off by default)</td><td>DuckDuckGo and the pages the agent opens</td><td>The agent's searches and page requests, only if you turn web access on.</td></tr>
+        <tr><td>The Poster</td><td>The platforms you connect (Bluesky, Mastodon, Discord, Slack, X, Reddit)</td><td>The posts you publish or approve, with their images, directly to that platform with your own account. Nothing goes through Ocadox.</td></tr>
+        <tr><td>Image, video and speech models</td><td>Hugging Face, GitHub (stable-diffusion.cpp, llama.cpp)</td><td>Which model or engine to download, once, when you set the feature up.</td></tr>
+        <tr><td>Cloud models with your own key (off by default)</td><td>The provider you add a key for (such as OpenRouter, OpenAI or Anthropic)</td><td>When you pick one of its models: your prompts and the files the agent reads, under that provider's privacy policy. Your key stays on your computer.</td></tr>
+        <tr><td>The browser tool</td><td>The pages the agent opens</td><td>Ordinary page requests from a private, temporary browser. Pages other than your own computer's need web access turned on.</td></tr>
         <tr><td>Things you connect</td><td>Your Forge image server, MCP tool servers, your other computers</td><td>Only what that feature needs, only to addresses you set up.</td></tr>
       </tbody>
     </table>
@@ -79,9 +85,21 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   <h2>This website</h2>
   <p>This site is hosted on GitHub Pages. It sets no cookies and has no analytics. GitHub may keep server logs, such as IP addresses, under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
 
+  <h2>Who is responsible</h2>
+  <p>Ocadox is made by Kenneth York, Georgia, USA. Because Ocadox keeps your data on your own computer, we don't hold your chats, files, voice or accounts, and can't see, sell or share them. We don't sell or share personal information, and we don't use it for advertising.</p>
+
+  <h2>Your rights</h2>
+  <p>Depending on where you live (for example under the GDPR in the EU and UK, or US state laws such as California's), you may have the right to know what personal information is held about you, and to have it corrected or deleted. Almost everything Ocadox keeps is in your own user folder, so you can see and delete it yourself: uninstall Ocadox and delete the <code>.ocadox</code> folder in your home folder. For your purchase details, contact Gumroad, or email us and we'll help. We'll answer within 30 days.</p>
+
+  <h2>Children</h2>
+  <p>Ocadox isn't aimed at children under 13 (or under 16 where the law requires), and we don't knowingly collect their information.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, we'll update the date at the top and mention significant changes in <a href="whats-new.html">What's new</a>.</p>
+
   <h2>Questions</h2>
-  <p>Open an issue at <a href="https://github.com/kennethyork/ocadox-releases/issues/new">github.com/kennethyork/ocadox-releases</a>.</p>
+  <p>Email <a href="mailto:kenneth.york@kennethyork.com">kenneth.york@kennethyork.com</a>, or open an issue at <a href="https://github.com/kennethyork/ocadox-releases/issues/new">github.com/kennethyork/ocadox-releases</a>.</p>
 </main>
-<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a> &middot; By Kenneth York &middot; also made <a href="https://local-bench.com">LocalBench</a></div></footer>
+<footer><div class="wrap">&copy; 2026 Ocadox. <a href="./">Home</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="refunds.html">Refunds</a> &middot; <a href="licenses.html">Licences</a> &middot; By Kenneth York &middot; also made <a href="https://local-bench.com">LocalBench</a></div></footer>
 </body>
 </html>

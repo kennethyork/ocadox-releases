@@ -240,6 +240,9 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
       <div class="card"><h3>Tries your web app <span class="tag">New</span></h3><p>It opens your app in a hidden browser, clicks and types, and reads the page and its console errors, so it can test what it builds.</p></div>
       <div class="card"><h3>Hooks and project rules</h3><p>Follows AGENTS.md or OCADOX.md. Add <code>After edit: npx prettier --write {file}</code> and it runs after every edit.</p></div>
       <div class="card"><h3>From the terminal</h3><p><code>ocadox run "fix the failing tests"</code> runs the agent without the window, in a script or a scheduled job.</p></div>
+      <div class="card"><h3>Make videos <span class="tag">New</span></h3><p><code>/video_create</code> a short clip from a description, or press Animate under any image. Wan 2.2, on your graphics card.</p></div>
+      <div class="card"><h3>Speak in your voice <span class="tag">New</span></h3><p>Give it 10 seconds of your voice, then <code>/speak</code> anything. Qwen3-TTS, on your PC. Only your own voice, or one you have permission for.</p></div>
+      <div class="card"><h3>Posts for you <span class="tag">New</span></h3><p>The Poster writes and schedules posts to Bluesky, Mastodon, Discord, Slack, X and Reddit. Bots can draft them for your OK. <a href="#poster">More</a></p></div>
       <div class="card"><h3>Make images, built in <span class="tag">New</span></h3><p>Type <code>/image_create</code> and what you want. Z-Image Turbo runs on your PC, about a minute per image on a good graphics card. One click to set up; no other app to install.</p></div>
       <div class="card"><h3>Talk instead of type</h3><p>Click the microphone and speak. Whisper turns it into text on your PC; nothing is sent anywhere.</p></div>
       <div class="card"><h3>Saved, searchable chats</h3><p>Every conversation is kept on your computer and can be searched.</p></div>
@@ -262,6 +265,27 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
       </ul>
     </div>
     <img class="shot" src="img/templates.png" width="1600" height="900" alt="Making a new bot in Ocadox from templates: Test watcher, Code reviewer, Dependency checker, Weekly summary and Folder tidier.">
+  </div>
+</section>
+
+<section id="poster" aria-labelledby="poster-title">
+  <div class="wrap split flip">
+    <div>
+      <span class="eyebrow">The Poster <span class="tag">New</span></span>
+      <h2 id="poster-title">Write it, schedule it, post it everywhere</h2>
+      <p class="lead">A social media scheduler built in, like Metricool, without the monthly bill. Draft with your local model, attach an image or your quiet week card, pick the accounts and a time. Straight from your PC to each platform; no Ocadox server in between.</p>
+      <ul class="list">
+        <li><b>Free:</b> 1 brand, 20 posts a month, to Bluesky, Mastodon, Discord and Slack. Bots draft posts for your OK.</li>
+        <li><b>Pro:</b> 5 brands, 100 posts a month, plus X and Reddit, and bots that post on their own where you allow it.</li>
+        <li><b>You stay in charge:</b> drafts wait in a queue until you approve them, and Reddit posts always do.</li>
+      </ul>
+    </div>
+    <div class="grid two">
+      <div class="card"><h3>Six places</h3><p>Bluesky, Mastodon, Discord, Slack, X and Reddit, each with its own length limit shown as you write.</p></div>
+      <div class="card"><h3>Your accounts, your keys</h3><p>App passwords, tokens and webhooks stay on your PC, never on a server.</p></div>
+      <div class="card"><h3>Bots that post</h3><p>"Every Monday, post what we shipped": a bot routine drafts it, you approve it (or let it post, with Pro).</p></div>
+      <div class="card"><h3>One price</h3><p>Pro is $79 once. Scheduling tools often charge that every few months.</p></div>
+    </div>
   </div>
 </section>
 
@@ -306,6 +330,12 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <tr><th scope="row">Image creation, built in (Z-Image Turbo, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Helpers, self-checks, hooks, a browser for the agent, the terminal</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Optional cloud models with your own API key</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Video creation (Wan 2.2) and speech in your voice (Qwen3-TTS), on your PC</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr class="group"><th scope="rowgroup" colspan="3">The Poster</th></tr>
+          <tr><th scope="row">Brands and published posts a month</th><td class="c">1 &middot; 20</td><td class="c yes">5 &middot; 100</td></tr>
+          <tr><th scope="row">Bluesky, Mastodon, Discord, Slack</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">X and Reddit</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Bots draft posts for your OK / post on their own</th><td class="c">Draft only</td><td class="c yes">Both</td></tr>
           <tr class="group"><th scope="rowgroup" colspan="3">Bots</th></tr>
           <tr><th scope="row">Bots with their own chat, folder and model, and templates</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Standing instructions for each bot</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
@@ -353,7 +383,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <li>Routines, always on, and your bots on your laptop and phone</li>
           <li>Up to 3 of your computers (phones don't count)</li>
           <li>All future updates; works offline after activation</li>
-          <li>30-day refund, no questions asked</li>
+          <li><a href="refunds.html">30-day refund</a>, no questions asked</li>
         </ul>
         <div class="btns"><a class="btn primary" href="https://kennethyork.gumroad.com/l/wggyib">Buy Ocadox Pro</a></div>
         <p class="small" style="margin:12px 0 0">No subscription. Checkout by Gumroad.</p>
@@ -437,7 +467,7 @@ footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 <footer>
   <div class="wrap row">
     <p>&copy; 2026 Ocadox. Built on <a href="https://ollama.com">Ollama</a>.</p>
-    <p><a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a> &middot; <a href="#pricing">Pricing</a> &middot; <a href="help.html">Help</a> &middot; <a href="whats-new.html">What's new</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="https://github.com/kennethyork/ocadox-releases/issues/new">Support</a></p>
+    <p><a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download</a> &middot; <a href="#pricing">Pricing</a> &middot; <a href="help.html">Help</a> &middot; <a href="whats-new.html">What's new</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="refunds.html">Refunds</a> &middot; <a href="licenses.html">Licences</a> &middot; <a href="https://github.com/kennethyork/ocadox-releases/issues/new">Support</a></p>
     <p>By Kenneth York &middot; also made <a href="https://local-bench.com">LocalBench</a></p>
   </div>
 </footer>
