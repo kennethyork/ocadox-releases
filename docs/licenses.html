@@ -36,7 +36,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 <header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./">ocadox<span>.</span></a><a href="./">Back to the site</a></nav></header>
 <main class="wrap">
   <h1>Open-source licences</h1>
-  <p>Ocadox is built with open-source software, and its image, video, speech and voice features download open models. Thank you to everyone who made them. Their licences are below; they apply to those components, not to Ocadox itself, which is covered by the <a href="terms.html">Terms</a>.</p>
+  <p>Ocadox is built with open-source software, and its image, video, speech, editing and music features download open engines and models. Thank you to everyone who made them. Their licences are below; they apply to those components, not to Ocadox itself, which is covered by the <a href="terms.html">Terms</a>.</p>
   <p><small>Generated October 13, 2026: 861 packages.</small></p>
 
   <h2>Downloaded when you set up a feature</h2>
@@ -54,6 +54,27 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
       <tr><td><a href="https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged">Wan 2.2 VAE, via Comfy-Org</a></td><td>Apache-2.0</td><td>Video creation</td></tr>
       <tr><td><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></td><td>MIT</td><td>Speech in your voice</td></tr>
       <tr><td><a href="https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base">Qwen3-TTS-12Hz-1.7B-Base (Qwen), GGUF by ggml-org</a></td><td>Apache-2.0</td><td>Speech in your voice</td></tr>
+      <tr><td><a href="https://huggingface.co/black-forest-labs/FLUX.2-klein-4B">FLUX.2 [klein] 4B (Black Forest Labs), GGUF by leejet</a></td><td>Apache-2.0</td><td>Picture editing, background removal</td></tr>
+      <tr><td><a href="https://huggingface.co/Qwen/Qwen3-4B">Qwen3-4B (Qwen), GGUF by Unsloth</a></td><td>Apache-2.0</td><td>Picture editing (text encoder)</td></tr>
+      <tr><td><a href="https://huggingface.co/black-forest-labs/FLUX.2-small-decoder">FLUX.2 small decoder (Black Forest Labs)</a></td><td>Apache-2.0</td><td>Picture editing (VAE)</td></tr>
+      <tr><td><a href="https://github.com/xinntao/Real-ESRGAN">Real-ESRGAN x4plus (Xintao Wang et al.)</a></td><td>BSD-3-Clause</td><td>Upscaling pictures 4x</td></tr>
+      <tr><td><a href="https://www.gyan.dev/ffmpeg/builds/">FFmpeg, Windows build by Gyan Doshi (on Mac and Linux, your system's FFmpeg)</a></td><td>GPL-3.0 (this build)</td><td>Long videos, voice-overs, video editing, Shorts, dubbing</td></tr>
+      <tr><td><a href="https://github.com/ServeurpersoCom/acestep.cpp">acestep.cpp (with ggml), built from source by Ocadox and hosted on ocadox-releases</a></td><td>MIT</td><td>Making music</td></tr>
+      <tr><td><a href="https://huggingface.co/ACE-Step/Ace-Step1.5">ACE-Step 1.5 (ACE Studio and StepFun), GGUF by Serveurperso</a></td><td>MIT</td><td>Making music (planner, music model, VAE)</td></tr>
+      <tr><td><a href="https://huggingface.co/Qwen/Qwen3-Embedding-0.6B">Qwen3-Embedding-0.6B (Qwen), GGUF by Serveurperso</a></td><td>Apache-2.0</td><td>Making music (text encoder)</td></tr>
+      <tr><td><a href="https://github.com/ollama/ollama">Ollama</a></td><td>MIT</td><td>Running local models (installed for you if you ask)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>In the Android app</h2>
+  <p>Besides the Rust crates listed below, the Android app uses these libraries:</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Library</th><th scope="col">Licence</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://developer.android.com/jetpack/androidx/releases/core">AndroidX Core</a></td><td>Apache-2.0</td></tr>
+      <tr><td><a href="https://github.com/JetBrains/kotlin">Kotlin standard library</a></td><td>Apache-2.0</td></tr>
+      <tr><td><a href="https://developers.google.com/ml-kit/code-scanner">Google Play services code scanner and base</a></td><td>Google APIs Terms of Service (not open source)</td></tr>
+      <tr><td><a href="https://developers.google.com/ml-kit/terms">ML Kit barcode scanning and CameraX, via tauri-plugin-barcode-scanner (in-app camera)</a></td><td>ML Kit Terms of Service; CameraX Apache-2.0</td></tr>
     </tbody>
   </table></div>
 
