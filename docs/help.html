@@ -56,9 +56,11 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#images">Making images and videos</a>
     <a href="#voice">Speaking in your voice</a>
     <a href="#editing">Editing pictures and videos</a>
+    <a href="#transcript">Edit by transcript and overdub</a>
     <a href="#recording">Recording a website</a>
     <a href="#characters">Characters (AI influencers)</a>
     <a href="#poster">The Poster</a>
+    <a href="#board">The board</a>
     <a href="#git">Git and GitHub</a>
     <a href="#cloud">Cloud models (OpenRouter or your own key)</a>
     <a href="#problems">Something's wrong</a>
@@ -153,6 +155,15 @@ After edit: npx prettier --write {file}</code></pre>
   <p><strong>Pictures:</strong> set up <strong>Picture editing</strong> once in Settings &gt; Image creation (7&nbsp;GB). Then press <strong>Edit</strong> under any picture and say what to change, or <strong>Upscale</strong> to make it 4 times bigger. <strong>Edit a picture…</strong> in the command palette works on your own files.</p>
   <p><strong>Videos:</strong> press <strong>Edit</strong> under a video, or <strong>Edit a video…</strong>. Describe the edit and press <strong>Fill in</strong>, or set it by hand: trim, shape (9:16 for TikTok, Reels and Shorts; 1:1; 16:9) by fitting over a blurred background or cropping, clips to join after it, music and its volume, and text on screen. Ocadox downloads FFmpeg once on Windows (115&nbsp;MB); on Linux install it with <code>sudo apt install ffmpeg</code>.</p>
 
+  <h2 id="transcript">Edit by transcript and overdub</h2>
+  <p><strong>Tools &gt; Edit by transcript</strong> (or <strong>Transcript</strong> under an MP4 in the chat). Whisper writes down every word with its time, on this PC; it needs a speech model, set up once in Settings &gt; Voice.</p>
+  <ul>
+    <li><strong>Cut words:</strong> click a word to cut it, Shift+click to cut a range, click again to keep it. <strong>Remove filler words</strong> crosses out every um and uh; <strong>Shorten long pauses</strong> trims gaps over a second.</li>
+    <li><strong>Fix words (overdub):</strong> click the first word you want to fix, Shift+click the last, type what you meant and press <strong>Fix it</strong>. It's re-spoken in your saved voice (Settings &gt; Image creation &gt; Speech, in your voice) and put in place; the picture holds or shortens to fit. Fixing a whole sentence sounds most natural. Only use your own voice, or one you have permission for.</li>
+    <li><strong>Captions from the transcript</strong> follow the edited speech, fixes included; <strong>Studio sound</strong> lowers background noise and evens the volume.</li>
+  </ul>
+  <p>In <strong>Edit video</strong> you can also cut out parts from the middle by time, and add <strong>timed text</strong> that shows between chosen seconds, at the top, middle or bottom.</p>
+
   <h2 id="recording">Recording a website</h2>
   <p><strong>Record a website…</strong> in the command palette: type the address, pick the length, desktop or phone size, and whether to scroll to the bottom. It opens in a private browser of its own (no sign-ins, nothing shared with your browser) and saves an MP4 you can edit or voice over.</p>
 
@@ -176,6 +187,17 @@ After edit: npx prettier --write {file}</code></pre>
   <p><strong>Bots:</strong> ask a bot or the agent to "write a post about this release" and it drafts one into the queue. With Pro, tick <em>Bots may post</em> on an account to let them post there without asking (never Reddit, which bans automatic posting). A routine such as "every Monday, post what we shipped" makes it a weekly habit.</p>
   <p><strong>Limits:</strong> Free has 1 brand and 20 posts a month to Bluesky, Mastodon, Discord and Slack. Pro has 5 brands and 100 posts a month, plus X and Reddit. A post to three accounts counts three; the count resets on the 1st.</p>
 
+  <h2 id="board">The board</h2>
+  <p><strong>Tools &gt; Board</strong> opens a Trello-style board for the chat's folder, kept on this PC (not in the project, so it never ends up in git). Add cards with <em>+ Add a card</em>, drag them between columns, rename or add columns, and click a card for notes, labels, a due date and a checklist.</p>
+  <ul>
+    <li><strong>Do it</strong> hands the card to the agent: it moves to Doing, the agent works on it, ticks the checklist and moves it to Done with a note of what it did.</li>
+    <li><strong>Bots (Pro):</strong> in a bot's routines choose <em>When a card is in a board column</em> and name the column (like "For the bot"). The bot takes the oldest card there, one at a time.</li>
+    <li>The agent can also add follow-up cards it notices, and see the board when you ask.</li>
+  </ul>
+
+  <h3>LM Studio in the model library</h3>
+  <p>With LM Studio's server added under Settings &gt; Local servers, the model library's <strong>LM Studio</strong> tab lists its models with size, context and whether they fit your graphics card, with <strong>Load</strong>, <strong>Unload</strong> and <strong>Download</strong> (a catalog name or a Hugging Face link). Its loaded models show in the In VRAM panel, and ones Ocadox used are unloaded when idle, like Ollama's. Needs LM Studio 0.4 or later. The <strong>Cloud</strong> tab lists OpenRouter's models with prices, and your Codex.</p>
+
   <h2 id="git">Git and GitHub</h2>
   <p><strong>Tools &gt; Git</strong> works on the chat's folder:</p>
   <ul>
@@ -191,6 +213,9 @@ After edit: npx prettier --write {file}</code></pre>
   <p>For the odd task a local model can't handle. Settings &gt; Cloud models: turn them on, keep OpenRouter as the provider and press <strong>Sign in with OpenRouter</strong>; approve in your browser, then pick models from the list (search, prices per million tokens, and <strong>Agent-ready</strong> for models that can use the agent's tools). Or choose OpenAI, Anthropic or another OpenAI-compatible provider, paste your API key and the model names you want. They appear in the model list marked <strong>CLOUD</strong>. When you use one, your messages and the files the agent reads go to that provider, and it bills your account. The key is kept only on your PC. Off until you add a key.</p>
 
   <p><strong>Where everything is:</strong> the <strong>Tools</strong> menu at the top has video, picture editing, voice-overs, recording, Characters, the Poster and Git; Ctrl+K finds anything by name.</p>
+
+  <h3>Local servers (LM Studio, llama.cpp and more)</h3>
+  <p>Settings &gt; <strong>Local servers</strong> &gt; <strong>Find servers</strong> checks the usual ports on this PC for LM Studio, llama.cpp's server, vLLM, Jan, KoboldCpp and text-generation-webui (start the server first; in LM Studio: Developer &gt; Start server). Or add one by address, including another computer on your network (like <code>http://192.168.1.20:1234/v1</code>). Their models appear in the list as <code>local:server/model</code>, without the CLOUD tag; the fan guard and power cap apply as with Ollama.</p>
 
   <h3>Use your Codex (ChatGPT plan)</h3>
   <p>With a ChatGPT Plus or Pro plan, you can use OpenAI's Codex as a model on your plan's limits. Install Codex once (<code>npm install -g @openai/codex</code>, needs Node.js), then Settings &gt; Cloud models &gt; <strong>Sign in with ChatGPT</strong>; Codex's own sign-in opens in your browser. Its models appear in the list marked <strong>CLOUD</strong>. In agent mode Codex works in the chat's folder and asks through Ocadox before anything risky; in plain chat it only reads.</p>

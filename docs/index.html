@@ -313,11 +313,12 @@ footer p{margin:0}
       </div>
       <div class="sub" id="bots">
         <div><h3>Works in your project</h3><p>Reads, edits and searches files, runs commands with your OK, uses git, and browses the web only if you turn that on. Each chat stays in its folder.</p></div>
-        <div><h3>Any model, in the app</h3><p>From the Ollama library or any GGUF on Hugging Face, labelled by whether it fits your GPU.</p></div>
+        <div><h3>Any model, in the app</h3><p>From the Ollama library or any GGUF on Hugging Face, labelled by whether it fits your GPU. Already use LM Studio, llama.cpp or vLLM? Their models work too, still local.</p></div>
         <div><h3>Checks its own work</h3><p>Runs your project's check (cargo check, tsc, go build, Python) before it says it's done, and tries your web app in a hidden browser, console errors and all.</p></div>
         <div><h3>Helpers, one at a time</h3><p>Hands a question to a helper with a fresh, empty context, which keeps long tasks on track on local models, and the fans calm.</p></div>
         <div><h3>Rules, hooks, terminal</h3><p>Follows AGENTS.md or OCADOX.md, runs <code>After edit:</code> hooks, and <code>ocadox run "fix the failing tests"</code> works without the window.</p></div>
         <div><h3>Talk, or type, for hours</h3><p>Whisper turns your voice into text on your PC. Long chats are summarised as they grow, saved, and searchable.</p></div>
+        <div><h3>A board for each project <span class="tag">New</span></h3><p>Trello-style cards with checklists and due dates. Hand a card to the agent with Do it, or let a bot work through a column.</p></div>
         <div><h3>Git, built in <span class="tag">New</span></h3><p>See your changes and diffs, commit with a message your local model writes, push, pull, switch branches, clone, and open GitHub pull requests.</p></div>
         <div><h3>Cloud when you want it <span class="tag">New</span></h3><p>Sign in with OpenRouter for Claude, GPT, Gemini, Grok and 450+ more, or use your own Codex with your ChatGPT plan. Optional, off until you choose it, and clearly marked.</p></div>
         <div class="wide panel">
@@ -348,6 +349,8 @@ footer p{margin:0}
         <div class="panel new"><h3>Edit by asking <span class="tag">New</span></h3><p>Under any picture, say what to change ("make it night", "change the sign to SALE"), or upscale it 4x. FLUX.2 klein and Real-ESRGAN, on your PC.</p></div>
         <div class="panel new"><h3>Quick video edits <span class="tag">New</span></h3><p>Describe it ("vertical for TikTok, cut the first 2 seconds, text at the top") and your local model fills in the trim, shape, music and text. Saved as an MP4.</p></div>
         <div class="panel new"><h3>Record a website <span class="tag">New</span></h3><p>A smooth scroll through any page, desktop or phone sized, in a private browser. Add a voice-over and you have a demo video.</p></div>
+        <div class="panel new"><h3>Edit by transcript <span class="tag">New</span></h3><p>Like Descript, on your PC: cross out words to cut them, drop the ums and long pauses in one click, captions that follow the speech, and studio sound.</p></div>
+        <div class="panel new"><h3>Overdub <span class="tag">New</span></h3><p>Said the wrong word? Type the right one in the transcript and it's re-spoken in your own saved voice, right where it belongs.</p></div>
         <div class="panel new"><h3>Record Ocadox itself <span class="tag">New</span></h3><p>Record the app's own window, or a demo while the agent works on a task, then edit it and add your voice-over. All on your PC.</p></div>
         <div class="panel new"><h3>On autopilot <span class="tag">New</span></h3><p>Bots can do all of it: "every Monday, record my site, make it vertical, voice it over and draft a post". Heavy steps ask first.</p></div>
       </div>
@@ -462,6 +465,8 @@ footer p{margin:0}
           <tr class="sect"><th scope="rowgroup" colspan="3">Safety nets</th></tr>
           <tr><th scope="row">Checkpoints: per-file diff review and one-click undo</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Git panel: changes, commits, push and pull, branches, clone, GitHub pull requests <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Project board; Do it hands a card to the agent <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Bots that work through a board column <span class="tag">New</span></th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Agent branches (own git worktree, merge or discard)</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Auto-approve rules</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
 
@@ -476,6 +481,7 @@ footer p{margin:0}
           <tr><th scope="row">Image creation, built in (Z-Image Turbo, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Video creation (Wan 2.2) and speech in your voice (Qwen3-TTS), on your PC</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Longer videos (up to 2 minutes) and voice-overs <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Edit by transcript and overdub in your voice <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Edit pictures by asking, upscale, quick video edits, record websites <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">AI influencers (characters) <span class="tag">New</span></th><td class="c">1</td><td class="c yes">5</td></tr>
           <tr><th scope="row">Transcribe audio and video files, with timestamps</th><td class="c no">No</td><td class="c yes">Yes</td></tr>
