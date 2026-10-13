@@ -58,6 +58,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#editing">Editing pictures and videos</a>
     <a href="#transcript">Edit by transcript and overdub</a>
     <a href="#shorts">Long video to Shorts</a>
+    <a href="#dub">Dubbing</a>
+    <a href="#notes">Meeting notes</a>
+    <a href="#anywhere">Dictate anywhere</a>
     <a href="#recording">Recording a website</a>
     <a href="#characters">Characters (AI influencers)</a>
     <a href="#poster">The Poster</a>
@@ -154,6 +157,7 @@ After edit: npx prettier --write {file}</code></pre>
 
   <h2 id="editing">Editing pictures and videos</h2>
   <p><strong>Pictures:</strong> set up <strong>Picture editing</strong> once in Settings &gt; Image creation (7&nbsp;GB). Then press <strong>Edit</strong> under any picture and say what to change, or <strong>Upscale</strong> to make it 4 times bigger. <strong>Edit a picture…</strong> in the command palette works on your own files.</p>
+  <p><strong>Remove the background:</strong> in <strong>Edit this picture</strong>, press <strong>Remove the background</strong> for a PNG of the subject with a see-through background. To erase something, say what to remove ("remove the person on the left").</p>
   <p><strong>Videos:</strong> press <strong>Edit</strong> under a video, or <strong>Edit a video…</strong>. Describe the edit and press <strong>Fill in</strong>, or set it by hand: trim, shape (9:16 for TikTok, Reels and Shorts; 1:1; 16:9) by fitting over a blurred background or cropping, clips to join after it, music and its volume, and text on screen. Ocadox downloads FFmpeg once on Windows (115&nbsp;MB); on Linux install it with <code>sudo apt install ffmpeg</code>.</p>
 
   <h2 id="transcript">Edit by transcript and overdub</h2>
@@ -173,6 +177,15 @@ After edit: npx prettier --write {file}</code></pre>
     <li>They appear in the chat and are saved in a "&lt;video name&gt; Shorts" folder beside the video. Post them from the Poster, or edit one further.</li>
     <li>Ask the agent too: "make 5 Shorts from podcast.mp4". It reads the transcript, picks the moments and saves them in the project.</li>
   </ul>
+
+  <h2 id="dub">Dubbing</h2>
+  <p><strong>Tools &gt; Dub a video</strong> (or <strong>Dub</strong> under an MP4 in the chat). Pick the language (English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean or Chinese) and a saved voice. Whisper writes down what's said, your chosen model translates it, and it's spoken in that voice right where the original was, sped up a little if a part runs long. Keep the original sound quietly underneath, and add captions in the new language, if you like. A picked video's dub is saved beside it as "&lt;name&gt; (Spanish).mp4". It needs voice input (Settings &gt; Voice) and speech in your voice (Settings &gt; Image creation &gt; Speech). Only use your own voice, or one you have permission for.</p>
+
+  <h2 id="notes">Meeting notes</h2>
+  <p><strong>Tools &gt; Meeting notes</strong>. <strong>Record from the microphone</strong> (up to 4 hours, saved in the project's Meetings folder as it goes), or <strong>Choose a recording</strong>. Press <strong>Write the notes</strong>: Whisper writes down what's said and your model writes a summary, key points with their times, decisions and action items. They're saved as "&lt;name&gt; notes.md" beside the recording, with the transcript under them, and shown in the chat. Tick <strong>Put the action items on this project's board</strong> to add each one as a card. Ask everyone's permission before recording them.</p>
+
+  <h2 id="anywhere">Dictate anywhere</h2>
+  <p>Turn it on in <strong>Settings &gt; Voice</strong>. In any app, press <strong>Ctrl+Alt+Space</strong> (or your own shortcut), talk, and press it again: what you said is typed where your cursor is. It's pasted using the clipboard, and whatever you had copied is put back straight after. It works while Ocadox is open or in the tray. On a Mac, allow Ocadox under Privacy &amp; Security &gt; Accessibility; on Linux install xdotool (X11) or wtype (Wayland), or the text is left on the clipboard to paste.</p>
 
   <h2 id="recording">Recording a website</h2>
   <p><strong>Record a website…</strong> in the command palette: type the address, pick the length, desktop or phone size, and whether to scroll to the bottom. It opens in a private browser of its own (no sign-ins, nothing shared with your browser) and saves an MP4 you can edit or voice over.</p>
