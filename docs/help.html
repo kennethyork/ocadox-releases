@@ -57,6 +57,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#voice">Speaking in your voice</a>
     <a href="#editing">Editing pictures and videos</a>
     <a href="#transcript">Edit by transcript and overdub</a>
+    <a href="#shorts">Long video to Shorts</a>
     <a href="#recording">Recording a website</a>
     <a href="#characters">Characters (AI influencers)</a>
     <a href="#poster">The Poster</a>
@@ -163,6 +164,15 @@ After edit: npx prettier --write {file}</code></pre>
     <li><strong>Captions from the transcript</strong> follow the edited speech, fixes included; <strong>Studio sound</strong> lowers background noise and evens the volume.</li>
   </ul>
   <p>In <strong>Edit video</strong> you can also cut out parts from the middle by time, and add <strong>timed text</strong> that shows between chosen seconds, at the top, middle or bottom.</p>
+
+  <h2 id="shorts">Long video to Shorts</h2>
+  <p><strong>Tools &gt; Long video to Shorts</strong> (or <strong>Shorts</strong> under an MP4 in the chat). Choose the video, how many Shorts (up to 10) and the longest each can be, then press <strong>Find the best moments</strong>. Whisper writes down what's said and your chosen model picks the moments that work on their own: a hook, one complete idea, a clear ending. It needs a speech model, set up once in Settings &gt; Voice.</p>
+  <ul>
+    <li>Untick moments you don't want, change their titles, or nudge the start and end a second at a time.</li>
+    <li>Each Short is made 9:16, filling the screen or with the whole picture over a blurred copy, with big captions a few words at a time and the title on top. <strong>Studio sound</strong> cleans up the audio.</li>
+    <li>They appear in the chat and are saved in a "&lt;video name&gt; Shorts" folder beside the video. Post them from the Poster, or edit one further.</li>
+    <li>Ask the agent too: "make 5 Shorts from podcast.mp4". It reads the transcript, picks the moments and saves them in the project.</li>
+  </ul>
 
   <h2 id="recording">Recording a website</h2>
   <p><strong>Record a website…</strong> in the command palette: type the address, pick the length, desktop or phone size, and whether to scroll to the bottom. It opens in a private browser of its own (no sign-ins, nothing shared with your browser) and saves an MP4 you can edit or voice over.</p>
