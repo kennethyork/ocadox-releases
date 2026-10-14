@@ -44,6 +44,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   <p class="lead">The parts of Ocadox worth knowing about that you might not find on your own.</p>
 
   <nav class="toc" aria-label="On this page">
+    <a href="#tabs">Chat tabs</a>
     <a href="#quiet">Keeping it quiet</a>
     <a href="#cpu">No graphics card: CPU mode</a>
     <a href="#rules">Project rules (AGENTS.md)</a>
@@ -67,9 +68,15 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#poster">The Poster</a>
     <a href="#board">The board</a>
     <a href="#git">Git and GitHub</a>
+    <a href="#mcp-server">Ocadox in Claude Code, Cursor and Codex</a>
+    <a href="#creator-bots">Bots for creators</a>
     <a href="#cloud">Cloud models (OpenRouter or your own key)</a>
     <a href="#problems">Something's wrong</a>
   </nav>
+
+  <h2 id="tabs">Chat tabs</h2>
+  <p>Open several chats at once: press <strong>+</strong> above the chat, or <strong>Ctrl+T</strong> (Cmd+T on a Mac). Each tab has its own folder and runs on its own, so one can work on a task while you chat in another. A dot on a tab means it's working, has finished, or (amber) is waiting for your OK. Opening a chat from the list shows its tab if it's open, or opens it in place of an idle tab. Closing a tab stops anything it's running; the chat stays in <strong>Chats</strong>.</p>
+  <p>Local models take turns on the graphics card, one reply at a time, which keeps the fan guard working; cloud models (Claude Code, Codex, OpenRouter) can answer side by side. Long jobs like a video edit or a song put their result in the tab they started in.</p>
 
   <h2 id="quiet">Keeping it quiet</h2>
   <p>Fans follow temperature. Ocadox keeps the temperature down in four ways, all in Settings:</p>
@@ -224,6 +231,14 @@ After edit: npx prettier --write {file}</code></pre>
 
   <h3>LM Studio in the model library</h3>
   <p>With LM Studio's server added under Settings &gt; Local servers, the model library's <strong>LM Studio</strong> tab lists its models with size, context and whether they fit your graphics card, with <strong>Load</strong>, <strong>Unload</strong> and <strong>Download</strong> (a catalog name or a Hugging Face link). Its loaded models show in the In VRAM panel, and ones Ocadox used are unloaded when idle, like Ollama's. Needs LM Studio 0.4 or later. The <strong>Cloud</strong> tab lists OpenRouter's models with prices, and your Codex.</p>
+
+  <h2 id="mcp-server">Ocadox in Claude Code, Cursor and Codex</h2>
+  <p>Other agents can use Ocadox&apos;s local tools as an MCP server: pictures, picture edits and background removal, upscaling, video, voice-overs in your saved voice, long video to Shorts, music, website recordings and (with Pro) transcription. They run on this PC with the models you set up in Ocadox. Open <strong>Settings &gt; Use Ocadox from Claude Code, Cursor or Codex</strong> and copy the line for yours, for example:</p>
+  <pre><code>claude mcp add ocadox -- "C:\Program Files\Ocadox\Ocadox.exe" mcp</code></pre>
+  <p>The other agent asks you before each tool call, as it does for any MCP tool, and files are read and saved in the project it&apos;s working in. Ocadox&apos;s fan guard still applies to the heavy tools. From a terminal, <code>ocadox mcp --help</code> shows the options.</p>
+
+  <h2 id="creator-bots">Bots for creators</h2>
+  <p>New bot templates set up common jobs in one click (their weekly routines come with Pro): <strong>Shorts channel</strong> turns new long videos into Shorts and drafts the posts; <strong>Podcast publisher</strong> writes show notes and chapters for each episode and makes clips; <strong>Music for my videos</strong> makes a background track to fit each new video; <strong>Website demo maker</strong> records your site, voices it over and drafts a post. Posts always wait for your OK unless you let bots post.</p>
 
   <h2 id="git">Git and GitHub</h2>
   <p><strong>Tools &gt; Git</strong> works on the chat's folder:</p>
