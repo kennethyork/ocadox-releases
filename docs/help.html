@@ -45,6 +45,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 
   <nav class="toc" aria-label="On this page">
     <a href="#tabs">Chat tabs</a>
+    <a href="#moving">Terminal, editor and moving computers</a>
     <a href="#quiet">Keeping it quiet</a>
     <a href="#cpu">No graphics card: CPU mode</a>
     <a href="#rules">Project rules (AGENTS.md)</a>
@@ -77,6 +78,14 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   <h2 id="tabs">Chat tabs</h2>
   <p>Open several chats at once: press <strong>+</strong> above the chat, or <strong>Ctrl+T</strong> (Cmd+T on a Mac). Each tab has its own folder and runs on its own, so one can work on a task while you chat in another. A dot on a tab means it's working, has finished, or (amber) is waiting for your OK. Opening a chat from the list shows its tab if it's open, or opens it in place of an idle tab. Closing a tab stops anything it's running; the chat stays in <strong>Chats</strong>.</p>
   <p>Local models take turns on the graphics card, one reply at a time, which keeps the fan guard working; cloud models (Claude Code, Codex, OpenRouter) can answer side by side. Long jobs like a video edit or a song put their result in the tab they started in.</p>
+
+  <h2 id="moving">Terminal, editor and moving computers</h2>
+  <p>All in <strong>Settings &gt; Terminal, editor and moving computers</strong>.</p>
+  <ul>
+    <li><strong>The ocadox command:</strong> tick <em>Add ocadox to the terminal</em> and, in a new terminal, <code>ocadox run "fix the failing tests"</code> or <code>ocadox mcp</code> work from any folder. On Windows the launcher goes in your user folder and your own PATH; on Mac and Linux in <code>~/.local/bin</code> (add it to your PATH if your shell doesn&apos;t already). Untick it to remove it.</li>
+    <li><strong>Open in your editor:</strong> every file the agent or Claude Code changes has an <strong>Open</strong> button that shows it at the changed line. Pick Cursor, VS Code, Zed or your system&apos;s default app; the default uses whichever is installed.</li>
+    <li><strong>Move to another computer:</strong> <em>Save settings to a file</em> keeps your bots, skills, voices, settings, preferences and the names of your models. Tick the boxes to include chats and boards, API keys and posting accounts (keep that file private), or AI characters. On the new computer, <em>Bring in settings</em>, download the models it lists, and restart. Activate Pro again there; it&apos;s per computer.</li>
+  </ul>
 
   <h2 id="quiet">Keeping it quiet</h2>
   <p>Fans follow temperature. Ocadox keeps the temperature down in four ways, all in Settings:</p>
