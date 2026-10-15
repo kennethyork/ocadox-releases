@@ -37,6 +37,12 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   <h1>What's new</h1>
   <p class="lead">Every release, newest first. Ocadox updates itself: you get each one from inside the app. <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download the latest</a>.</p>
   <section class="release">
+    <h2>0.8.5 <span class="date">October 14, 2026</span></h2>
+    <ul>
+      <li>Cloud models use their full context window. A chat with an OpenRouter, OpenAI or Anthropic model (and Claude Code or Codex) now carries the whole conversation and is only compacted at about half the model's real window, instead of the small budget meant for your graphics card. Local models keep the quiet budget. /compact still works any time, and keeps a long cloud chat cheaper.</li>
+    </ul>
+  </section>
+  <section class="release">
     <h2>0.8.4 <span class="date">October 14, 2026</span></h2>
     <ul>
       <li>Talking avatar (Tools &gt; Talking avatar): a photo of you says a script in your saved voice, or a recording, with the lips in time, like HeyGen but on your PC. Vertical or wide, with captions. Set it up once in Settings &gt; Image creation &gt; Talking avatar (about 15 GB; needs a graphics card with 16 GB or more).</li>

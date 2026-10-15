@@ -322,7 +322,7 @@ footer p{margin:0}
         <div><h3>Git, built in <span class="tag">New</span></h3><p>See your changes and diffs, commit with a message your local model writes, push, pull, switch branches, clone, and open GitHub pull requests.</p></div>
         <div><h3>Chat tabs <span class="tag">New</span></h3><p>Several chats open at once, each in its own folder and running on its own. A dot tells you when one finishes or needs your OK.</p></div>
         <div><h3>Works inside Claude Code, Cursor and Codex <span class="tag">New</span></h3><p>Add Ocadox as an MCP server and your coding agent can make pictures, video, voice-overs, Shorts and music on your PC, with the models you set up here.</p></div>
-        <div><h3>Cloud when you want it <span class="tag">New</span></h3><p>Use your own Claude Code with your Anthropic API key, or your own Codex. Or Sign in with OpenRouter for Claude, GPT, Gemini, Grok and 450+ more, or bring your own API key. Optional, off until you choose it, and clearly marked.</p></div>
+        <div><h3>Cloud when you want it <span class="tag">New</span></h3><p>Use your own Claude Code with your Anthropic API key, or your own Codex. Or Sign in with OpenRouter for Claude, GPT, Gemini, Grok and 450+ more, or bring your own API key. Optional, off until you choose it, and clearly marked. Cloud models get their full context window; local ones keep the quiet budget.</p></div>
         <div class="wide panel">
           <h3>Bots</h3>
           <ul class="list" style="margin-top:12px">
@@ -464,7 +464,7 @@ footer p{margin:0}
           <tr><th scope="row">Saved, searchable chats</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Chat tabs: several chats running at once <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Voice dictation (Whisper, on your PC)</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
-          <tr><th scope="row">Optional cloud models: Sign in with OpenRouter (450+ models) or your own API key</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
+          <tr><th scope="row">Optional cloud models: Sign in with OpenRouter (450+ models) or your own API key, with their full context window</th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Use your own Claude Code or Codex <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Ocadox's creative tools inside Claude Code, Cursor and Codex (MCP) <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
           <tr><th scope="row">Setup that picks the extras that fit your PC <span class="tag">New</span></th><td class="c yes">Yes</td><td class="c yes">Yes</td></tr>
@@ -586,7 +586,7 @@ footer p{margin:0}
       </details>
       <details>
         <summary>Can I use cloud models like Claude or GPT, or Ollama's?</summary>
-        <p>Yes, if you want to. In Settings &gt; Cloud models, press <b>Sign in with OpenRouter</b> and approve in your browser (no key to copy), then pick from 450+ models with their prices: Claude, GPT, Gemini, Grok, DeepSeek and more. Or add your own API key for OpenAI, Anthropic and others. Or use your own <b>Claude Code</b> with an Anthropic Console API key (Settings &gt; Cloud models), or your own <b>Codex</b>; Ocadox never sees your sign-in. It's off until you do. Or sign in to Ollama and pull one of its cloud models. Either way they're marked CLOUD: when you use one, your messages and the files the agent reads go to that provider. Your own key bills your account. Ocadox tells you once before you use an Ollama cloud model, and Settings can hide them so everything stays on your computer.</p>
+        <p>Yes, if you want to. In Settings &gt; Cloud models, press <b>Sign in with OpenRouter</b> and approve in your browser (no key to copy), then pick from 450+ models with their prices: Claude, GPT, Gemini, Grok, DeepSeek and more. Or add your own API key for OpenAI, Anthropic and others. Or use your own <b>Claude Code</b> with an Anthropic Console API key (Settings &gt; Cloud models), or your own <b>Codex</b>; Ocadox never sees your sign-in. It's off until you do. Or sign in to Ollama and pull one of its cloud models. Either way they're marked CLOUD: when you use one, your messages and the files the agent reads go to that provider. Your own key bills your account. Ocadox tells you once before you use an Ollama cloud model, and Settings can hide them so everything stays on your computer. Cloud models get their full context window: the whole conversation goes with each message, and it's only compacted into a summary at about half the window (type /compact to do it sooner and keep a paid key cheaper).</p>
       </details>
       <details>
         <summary>Can bots keep working while I'm away?</summary>
