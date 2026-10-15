@@ -60,12 +60,14 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <a href="#editing">Editing pictures and videos</a>
     <a href="#transcript">Edit by transcript and overdub</a>
     <a href="#shorts">Long video to Shorts</a>
+    <a href="#avatar">Talking avatar</a>
     <a href="#music">Making music</a>
     <a href="#dub">Dubbing</a>
     <a href="#notes">Meeting notes</a>
     <a href="#anywhere">Dictate anywhere</a>
     <a href="#recording">Recording a website</a>
     <a href="#characters">Characters (AI influencers)</a>
+    <a href="#books">Books</a>
     <a href="#poster">The Poster</a>
     <a href="#board">The board</a>
     <a href="#git">Git and GitHub</a>
@@ -195,6 +197,9 @@ After edit: npx prettier --write {file}</code></pre>
     <li>Ask the agent too: "make 5 Shorts from podcast.mp4". It reads the transcript, picks the moments and saves them in the project.</li>
   </ul>
 
+  <h2 id="avatar">Talking avatar</h2>
+  <p>Set it up once in <strong>Settings &gt; Image creation &gt; Talking avatar</strong> (about 15&nbsp;GB: Wan 2.2 S2V 14B, its audio encoder and VAE, all Apache 2.0; it shares video&apos;s text encoder). It needs a graphics card with 16&nbsp;GB or more; 12&nbsp;GB works slowly. Then open <strong>Tools &gt; Talking avatar</strong>: choose a photo of you (or one of your characters), write what to say in your saved voice or choose a recording, pick vertical or wide, and confirm the face is yours or used with permission. The speech is made in 5-second parts from the same photo and joined, with captions if you like, and saved in the project&apos;s Avatars folder. Each 5 seconds takes several minutes on a 24&nbsp;GB card with nothing else using it, and much longer if another program holds the card&apos;s memory. Long videos may show a slight jump every 5 seconds. Label it as AI where you post it.</p>
+
   <h2 id="music">Making music</h2>
   <p>Set it up once in <strong>Settings &gt; Image creation &gt; Music</strong> (about 5.7&nbsp;GB: the ACE-Step 1.5 models and the acestep.cpp engine, both MIT licensed). Then open <strong>Tools &gt; Make music</strong>: describe the style, mood and instruments, and choose <strong>Instrumental</strong>, <strong>Write lyrics for me</strong> or <strong>My lyrics</strong> (mark parts with [Verse] and [Chorus]), the length (30 seconds to 4 minutes) and the language it's sung in. Choose <strong>Fast</strong> or <strong>Best quality</strong>: best uses ACE-Step's XL model and its 4B planner (one more 9.8&nbsp;GB download, under <strong>Music: best quality</strong> in Settings) for fuller, more detailed songs. Your chat model first turns a short idea into a full description with a tempo that suits the style. A song takes under a minute on a good graphics card. Songs play in the chat, and is saved as an MP3 in the project's Music folder. Use it as the music in <strong>Edit a video</strong>. The agent can make music too, asking first.</p>
 
@@ -209,6 +214,18 @@ After edit: npx prettier --write {file}</code></pre>
 
   <h2 id="recording">Recording a website</h2>
   <p><strong>Record a website…</strong> in the command palette: type the address, pick the length, desktop or phone size, and whether to scroll to the bottom. It opens in a private browser of its own (no sign-ins, nothing shared with your browser) and saves an MP4 you can edit or voice over.</p>
+
+  <h2 id="books">Books</h2>
+  <p><strong>Tools &gt; Make a book</strong>, for every kind of book: novels, short stories, poetry, screenplays and stage plays; memoir, biography and history; nonfiction guides, cookbooks, textbooks and workbooks, and essays; and picture books for children. Say what it's about, pick the kind, the number of parts and the page size, and your chat's model plans a title and an outline. Each kind is written and laid out its own way: poems keep their lines, scripts are in script format, recipes have ingredient lists and numbered steps, lessons end with exercises and answers. Then, for each part, or all at once:</p>
+  <ul>
+    <li><strong>Write</strong>: the model writes it from the outline and what came before. Edit anything; it saves as you type.</li>
+    <li><strong>Picture</strong>: an illustration made on this PC in the book's style, and a cover. Pick one of your <a href="#characters">Characters</a> as the star and, with picture editing set up, they keep the same face on every page.</li>
+    <li><strong>Read aloud</strong>: an audiobook in one of your saved voices, an MP3 per page or chapter.</li>
+  </ul>
+  <p><strong>Export PDF</strong> lays the book out at its page size (8.5 × 8.5, 8 × 10, 8.5 × 11, 6 × 9, 5.5 × 8.5 or 5 × 8 inches, all Amazon KDP sizes) with a cover, title and copyright pages, contents and page numbers, ready to print or upload as a paperback interior; it needs Chrome or Edge. <strong>Export EPUB</strong> makes an e-book for Kindle, Apple Books and Google Play. <strong>Post about it</strong> drafts a post with the cover in the Poster. Everything is in the project's <code>Books</code> folder. The agent and bots can add chapters and export too (<code>book_add_part</code>, <code>book_export</code>): "every morning, write the next chapter of my book".</p>
+  <h3>History, biography and other true stories</h3>
+  <p>History, biography, nonfiction, textbooks and essays get <strong>Sources and accuracy</strong>. <strong>Research</strong> searches the web for each chapter and keeps the best pages as its sources (only with Settings &gt; Web access on); <strong>Add a file</strong> (PDF, Word or text) and <strong>Add notes</strong> add your own, which stay on this PC. Chapters are then written from the sources and cite them by number, like [2], and the PDF and EPUB end with the numbered list. <strong>Fact-check</strong> reads each chapter against its sources and flags dates, names, numbers and quotes they don't back up. History and biography books also get a <strong>Timeline</strong> page. The fact-check helps, but it isn't a guarantee: check flagged claims, and every quote, yourself.</p>
+  <p>Selling a book made with AI? Amazon KDP asks you to say when text or pictures are AI-generated.</p>
 
   <h2 id="characters">Characters (AI influencers)</h2>
   <p>The <strong>Characters</strong> button in the top bar. Describe what your character looks like and press <strong>Make a portrait</strong> (or use a picture you have the rights to); add a personality, a saved voice and the Poster brand to post as. You'll be asked to confirm the face is made up, yours, or used with the person's permission.</p>
