@@ -37,6 +37,14 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   <h1>What's new</h1>
   <p class="lead">Every release, newest first. Ocadox updates itself: you get each one from inside the app. <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download the latest</a>.</p>
   <section class="release">
+    <h2>0.8.8 <span class="date">October 14, 2026</span></h2>
+    <ul>
+      <li>Your own Anthropic key now uses Anthropic's own API instead of its OpenAI-compatible one: the conversation is cached (repeats billed at a fraction, so long chats cost much less), agent runs keep Claude's reasoning between steps, current Claude models get their full 1M-token window, and Spending shows each reply's cost.</li>
+      <li>Talking avatar: no more jump every 5 seconds. Each part now starts half a second early and dissolves into the one before over the same words.</li>
+      <li>Talking avatar: when another program (like Ollama) holds much of the graphics card's memory, a part that doesn't fit is made again within the memory that's free, instead of failing.</li>
+    </ul>
+  </section>
+  <section class="release">
     <h2>0.8.7 <span class="date">October 14, 2026</span></h2>
     <ul>
       <li>Talking avatar: fast mode. Add it in Settings &gt; Image creation &gt; Talking avatar: fast mode (1.2 GB) and choose Fast: 4 steps instead of 20, so each 5 seconds takes about 10 minutes instead of nearly an hour on a busy 24 GB card (much less with nothing else using it). The face and lip sync hold up; it's a little less lively.</li>
