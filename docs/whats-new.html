@@ -37,6 +37,15 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   <h1>What's new</h1>
   <p class="lead">Every release, newest first. Ocadox updates itself: you get each one from inside the app. <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download the latest</a>.</p>
   <section class="release">
+    <h2>0.8.6 <span class="date">October 14, 2026</span></h2>
+    <ul>
+      <li>Cloud spending: under each cloud reply, the tokens it used (and how many came from the cache) and what it cost, with the chat's total. Agent runs add up every step.</li>
+      <li>Settings &gt; Cloud models &gt; Spending: this month's total by model, the months before, and an optional monthly limit. Once it's reached, cloud requests stop (local models keep working).</li>
+      <li>Prompt caching for Claude models on OpenRouter: the conversation so far is reused from the cache, so each message in a long chat costs much less.</li>
+      <li>The Memory meter under the message box now uses each model's own window, so a cloud chat no longer looks full at 16,000 characters.</li>
+    </ul>
+  </section>
+  <section class="release">
     <h2>0.8.5 <span class="date">October 14, 2026</span></h2>
     <ul>
       <li>Cloud models use their full context window. A chat with an OpenRouter, OpenAI or Anthropic model (and Claude Code or Codex) now carries the whole conversation and is only compacted at about half the model's real window, instead of the small budget meant for your graphics card. Local models keep the quiet budget. /compact still works any time, and keeps a long cloud chat cheaper.</li>
