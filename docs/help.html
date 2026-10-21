@@ -35,10 +35,19 @@ pre code{background:none;border:0;padding:0}
 .note{border-left:3px solid var(--accent);padding:2px 0 2px 14px}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
 @media (max-width:560px){.toc{columns:1}}
+.brand{display:flex;align-items:center;gap:9px}.brand .mark{color:var(--accent);flex:none}
+
+/* The Ocadox wordmark (docs/brand/logo-wordmark-dark.svg), drawn inline. */
+.wordmark{display:block;height:26px;width:auto;color:#e7ebf1}
+.wordmark .wm-letters{fill:none;stroke:currentColor;stroke-width:48;stroke-linecap:round}
+.wordmark .wm-accent{stroke:#5eead4}
+.wordmark .wm-ring{fill:none;stroke:#5eead4;stroke-width:150;stroke-linecap:round}
+.wordmark .wm-dot{fill:#5eead4}
+.brand .wordmark{height:26px}
 </style>
 </head>
 <body>
-<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./">ocadox<span>.</span></a><span class="links"><a href="whats-new.html">What's new</a><a href="./">Back to the site</a></span></nav></header>
+<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./" aria-label="Ocadox, home"><svg class="wordmark" viewBox="90 118 2020 478" role="img" aria-label="Ocadox"><g transform="translate(30 144) scale(.5)"><path class="wm-ring" d="M589.6 801.8 A300 300 0 1 1 810.9 538.1"/><circle class="wm-dot" cx="742" cy="705" r="75"/></g><g class="wm-letters"><circle cx="674" cy="400" r="90"/><path d="M1010 336 A90 90 0 1 0 1010 464"/><circle cx="1192" cy="400" r="90"/><path d="M1282 310 V490"/><circle cx="1464" cy="400" r="90"/><path d="M1554 150 V490"/><circle class="wm-accent" cx="1736" cy="400" r="90"/><path d="M1918 310 L2078 490 M2078 310 L1918 490"/></g></svg></a><span class="links"><a href="whats-new.html">What's new</a><a href="./">Back to the site</a></span></nav></header>
 <main class="wrap">
   <h1>Help</h1>
   <p class="lead">The parts of Ocadox worth knowing about that you might not find on your own.</p>
@@ -137,6 +146,7 @@ After edit: npx prettier --write {file}</code></pre>
 <pre><code>ocadox run "fix the failing tests" --folder ~/code/app --model qwen3:8b</code></pre>
   <ul>
     <li><code>--folder</code> the project (default: the current folder), <code>--model</code> the model (default: your bots' model).</li>
+    <li>Every model from the app works, not only Ollama ones: Claude Code, Codex, your cloud keys and other local servers, e.g. <code>--model claude-code:opus</code>. <code>ocadox models</code> lists the names, then the image, video, music and speech models you've set up, which the agent can use to make things.</li>
     <li><code>--steps 30</code> the most steps, <code>--quiet-level silent|balanced|turbo</code>.</li>
     <li>It asks <code>y/N</code> before commands and changes; <code>--yes</code> allows them all (for scheduled jobs you trust).</li>
     <li>Ollama is reached at <code>OLLAMA_HOST</code>, or on this PC.</li>

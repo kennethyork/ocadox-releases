@@ -29,15 +29,122 @@ h1{font-size:clamp(1.8rem,5vw,2.4rem);line-height:1.2;margin:0 0 .4em}
 li{color:var(--muted);margin:.35em 0}
 code{background:#1a2029;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.9em;color:var(--text)}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+.brand{display:flex;align-items:center;gap:9px}.brand .mark{color:var(--accent);flex:none}
+
+/* The Ocadox wordmark (docs/brand/logo-wordmark-dark.svg), drawn inline. */
+.wordmark{display:block;height:26px;width:auto;color:#e7ebf1}
+.wordmark .wm-letters{fill:none;stroke:currentColor;stroke-width:48;stroke-linecap:round}
+.wordmark .wm-accent{stroke:#5eead4}
+.wordmark .wm-ring{fill:none;stroke:#5eead4;stroke-width:150;stroke-linecap:round}
+.wordmark .wm-dot{fill:#5eead4}
+.brand .wordmark{height:26px}
 </style>
 </head>
 <body>
-<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./">ocadox<span>.</span></a><span class="links"><a href="help.html">Help</a><a href="./">Back to the site</a></span></nav></header>
+<header><nav class="wrap nav" aria-label="Main"><a class="brand" href="./" aria-label="Ocadox, home"><svg class="wordmark" viewBox="90 118 2020 478" role="img" aria-label="Ocadox"><g transform="translate(30 144) scale(.5)"><path class="wm-ring" d="M589.6 801.8 A300 300 0 1 1 810.9 538.1"/><circle class="wm-dot" cx="742" cy="705" r="75"/></g><g class="wm-letters"><circle cx="674" cy="400" r="90"/><path d="M1010 336 A90 90 0 1 0 1010 464"/><circle cx="1192" cy="400" r="90"/><path d="M1282 310 V490"/><circle cx="1464" cy="400" r="90"/><path d="M1554 150 V490"/><circle class="wm-accent" cx="1736" cy="400" r="90"/><path d="M1918 310 L2078 490 M2078 310 L1918 490"/></g></svg></a><span class="links"><a href="help.html">Help</a><a href="./">Back to the site</a></span></nav></header>
 <main class="wrap">
   <h1>What's new</h1>
   <p class="lead">Every release, newest first. Ocadox updates itself: you get each one from inside the app. <a href="https://github.com/kennethyork/ocadox-releases/releases/latest">Download the latest</a>.</p>
   <section class="release">
-    <h2>0.10.2</h2>
+    <h2>0.10.11 <span class="date">October 21, 2026</span></h2>
+    <ul>
+      <li>GPU: one job at a time on the graphics card, first come first served.</li>
+      <li>Music: songs sung in your own voice.</li>
+      <li>Tests: check a model against every agent tool, on GitHub.</li>
+      <li>Brand: Oda without feet.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.10 <span class="date">October 20, 2026</span></h2>
+    <ul>
+      <li>Video: choose LTX-2.3 (with sound), HunyuanVideo 1.5 or LingBot-Video next to Wan 2.2.</li>
+      <li>Video: recommend a video model for your graphics card.</li>
+      <li>Video: long videos for YouTube, 1 to 30 minutes, narrated in your voice.</li>
+      <li>Brand: Oda icons for Android and iOS.</li>
+      <li>Tools: start on a model on this PC, not the cloud chat model.</li>
+      <li>Tools: start on the biggest model on this PC.</li>
+      <li>Claude Code and Codex: pass on a tool's instructions.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.9 <span class="date">October 19, 2026</span></h2>
+    <ul>
+      <li>Tools: the menu's text is white in the dark theme.</li>
+      <li>Tools: a Terminal you type in.</li>
+      <li>Agent: read and type into the Terminal tool's tabs.</li>
+      <li>Install Ollama from the welcome screen on every system.</li>
+      <li>Knowledge: chats that answer from your own documents, with sources.</li>
+      <li>Compare: several models answer one prompt side by side, with what each cost.</li>
+      <li>Tests: give each Notes test its own folder.</li>
+      <li>Share your models: an OpenAI-compatible API, paced by the fan guard.</li>
+      <li>Phone page: work on iPhone, over plain HTTPS when WebSockets are refused.</li>
+      <li>Quick Ask: a hotkey in any app opens a small box with the selected text.</li>
+      <li>Research: a question in, a cited report out, read on this PC.</li>
+      <li>Audio overview: two hosts talk your documents through, like a podcast.</li>
+      <li>Data analysis: ask a spreadsheet questions, answered with tables and charts.</li>
+      <li>Translate a document, keeping its layout where the format allows.</li>
+      <li>Notes: open an Obsidian vault and keep its pages as Obsidian wrote them.</li>
+      <li>﻿Brand: put the O logo and Oda in the app.</li>
+      <li>Brand: put the O logo and Oda in the phone app.</li>
+      <li>Brand: the O logo and Oda on the website, Oda in Notes and Bots.</li>
+      <li>Brand: build the app icons straight from docs/brand/icon.svg.</li>
+      <li>Agent: accept common argument names and explain missing ones.</li>
+      <li>Brand: Oda is the app icon.</li>
+      <li>Brand: Oda in the top bar instead of the O.</li>
+      <li>Build: rebuild the exe icon when the icons change.</li>
+      <li>Bots: no Oda in the empty list.</li>
+      <li>Brand: the wordmark in the top bar.</li>
+      <li>Tools: a /command for each one in the chat.</li>
+      <li>Quick Ask: open from the Tools menu.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.8 <span class="date">October 18, 2026</span></h2>
+    <ul>
+      <li>Speech: clone from a 12-second clip of the voice sample.</li>
+      <li>Agent: local models keep going and compact their steps when memory fills.</li>
+      <li>Video: one at a time, and upright photos animate upright.</li>
+      <li>Tools: the search box keeps what you type.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.7 <span class="date">October 18, 2026</span></h2>
+    <ul>
+      <li>Chat: type your next message while a reply is running and press Enter; it's queued and sent when the reply finishes.</li>
+      <li>Models: back to just Opus, Sonnet, Haiku and Fable when signed in with Claude Code.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.6 <span class="date">October 18, 2026</span></h2>
+    <ul>
+      <li>Models: every current Claude model is listed when signed in with Claude Code.</li>
+      <li>Terminal: ocadox models also lists the image, video, music and speech models that are set up.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.5 <span class="date">October 18, 2026</span></h2>
+    <ul>
+      <li>Video: /video_create starts from an attached picture, and attached photos have Animate.</li>
+      <li>Models: Fable 5.1 when signed in with Claude Code.</li>
+      <li>Terminal: ocadox run works with every model from the app; ocadox models lists them.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.4 <span class="date">October 18, 2026</span></h2>
+    <ul>
+      <li>Settings: choose where image and voice models are stored, like another drive; existing models move there.</li>
+      <li>Images: /image_create uses attached pictures as references.</li>
+      <li>Hosting: keeps listening after a failed connection and restarts cleanly on the same port.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.3 <span class="date">October 18, 2026</span></h2>
+    <ul>
+      <li>Chats: open, search and start other chats while one is still replying; it keeps going in its own tab.</li>
+    </ul>
+  </section>
+  <section class="release">
+    <h2>0.10.2 <span class="date">October 17, 2026</span></h2>
     <ul>
       <li>Design: clearer names in Ctrl+K, the tour and help.</li>
     </ul>

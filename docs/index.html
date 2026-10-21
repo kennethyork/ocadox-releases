@@ -41,8 +41,10 @@ code{font-family:ui-monospace,"Cascadia Mono",Consolas,"Liberation Mono",monospa
 header.top{position:sticky;top:0;z-index:5;background:rgba(10,12,16,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:650;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.01em}
-.brand i{width:15px;height:15px;border-radius:50%;border:4px solid var(--accent)}
-.brand b{color:var(--accent)}
+.brand .mark{color:var(--accent);flex:none}
+.oda{display:block;margin:0 auto 18px}
+.head .oda{margin:0 0 12px}
+.head.center .oda{margin:0 auto 12px}
 .nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;align-items:center}
 .nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
 .nav ul a:hover{color:var(--text)}
@@ -207,6 +209,21 @@ footer p{margin:0}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important}
 }
+
+/* The Ocadox wordmark (docs/brand/logo-wordmark-dark.svg), drawn inline. */
+.wordmark{display:block;height:26px;width:auto;color:#e7ebf1}
+.wordmark .wm-letters{fill:none;stroke:currentColor;stroke-width:48;stroke-linecap:round}
+.wordmark .wm-accent{stroke:#5eead4}
+.wordmark .wm-ring{fill:none;stroke:#5eead4;stroke-width:150;stroke-linecap:round}
+.wordmark .wm-dot{fill:#5eead4}
+.brand .wordmark{height:26px}
+.lockup{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 auto 30px}
+.lockup-oda{width:150px;height:150px;flex:none}
+.lockup-word{height:78px}
+.foot-brand{margin-bottom:22px}
+.foot-brand a{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.foot-brand .wordmark{height:22px;color:var(--muted)}
+@media (max-width:560px){.lockup{gap:14px}.lockup-oda{width:92px;height:92px}.lockup-word{height:46px}}
 </style>
 </head>
 <body>
@@ -214,7 +231,7 @@ footer p{margin:0}
 
 <header class="top">
   <nav class="wrap nav" aria-label="Main">
-    <a class="brand" href="#top" aria-label="Ocadox, back to top"><i aria-hidden="true"></i><span>ocadox<b>.</b></span></a>
+    <a class="brand" href="#top" aria-label="Ocadox, home"><svg class="wordmark" viewBox="90 118 2020 478" role="img" aria-label="Ocadox"><g transform="translate(30 144) scale(.5)"><path class="wm-ring" d="M589.6 801.8 A300 300 0 1 1 810.9 538.1"/><circle class="wm-dot" cx="742" cy="705" r="75"/></g><g class="wm-letters"><circle cx="674" cy="400" r="90"/><path d="M1010 336 A90 90 0 1 0 1010 464"/><circle cx="1192" cy="400" r="90"/><path d="M1282 310 V490"/><circle cx="1464" cy="400" r="90"/><path d="M1554 150 V490"/><circle class="wm-accent" cx="1736" cy="400" r="90"/><path d="M1918 310 L2078 490 M2078 310 L1918 490"/></g></svg></a>
     <ul>
       <li class="hide-sm"><a href="#quiet">Quiet</a></li>
       <li class="hide-sm"><a href="#features">Features</a></li>
@@ -230,6 +247,7 @@ footer p{margin:0}
 
 <section class="hero" id="top" aria-labelledby="hero-title">
   <div class="wrap">
+    <div class="lockup"><img class="lockup-oda" src="img/oda.svg" width="150" height="150" alt="Oda, the Ocadox buddy, waving"><svg class="wordmark lockup-word" viewBox="550 118 1560 404" role="img" aria-label="Ocadox"><g class="wm-letters"><circle cx="674" cy="400" r="90"/><path d="M1010 336 A90 90 0 1 0 1010 464"/><circle cx="1192" cy="400" r="90"/><path d="M1282 310 V490"/><circle cx="1464" cy="400" r="90"/><path d="M1554 150 V490"/><circle class="wm-accent" cx="1736" cy="400" r="90"/><path d="M1918 310 L2078 490 M2078 310 L1918 490"/></g></svg></div>
     <span class="eyebrow">Local AI for Windows, Mac and Linux</span>
     <h1 id="hero-title">The local AI<br>of the <span class="hl">future</span>.</h1>
     <p class="lead"><strong>Your fans stop screaming.</strong> A private coding agent, bots, images, video and voice on your own PC, with Ollama. Ocadox watches the heat while they work and holds the power down, so the fans stay at normal speed. With a graphics card or just the processor.</p>
@@ -252,6 +270,7 @@ footer p{margin:0}
 <section id="quiet" aria-labelledby="quiet-title">
   <div class="wrap">
     <div class="head">
+      <img class="oda" src="img/oda-sleep.svg" width="72" height="72" alt="" aria-hidden="true">
       <span class="eyebrow">Quiet by design</span>
       <h2 id="quiet-title">Why your fans scream, and how Ocadox stops it</h2>
       <p class="lead">An agent keeps a model generating for minutes at a time, flat out, and the fans ramp up to match. Other local AI apps let the heat build. Ocadox paces the work and lowers the power while it generates, then puts everything back.</p>
@@ -580,6 +599,7 @@ footer p{margin:0}
 <section id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="head center" style="margin-left:auto;margin-right:auto">
+      <img class="oda" src="img/oda-think.svg" width="72" height="72" alt="" aria-hidden="true">
       <span class="eyebrow">FAQ</span>
       <h2 id="faq-title">Questions</h2>
     </div>
@@ -623,6 +643,9 @@ footer p{margin:0}
 </main>
 
 <footer>
+  <div class="wrap foot-brand">
+    <a href="#top" aria-label="Ocadox, back to top"><img src="img/oda-sleep.svg" width="52" height="52" alt=""><svg class="wordmark" viewBox="550 118 1560 404" aria-hidden="true"><g class="wm-letters"><circle cx="674" cy="400" r="90"/><path d="M1010 336 A90 90 0 1 0 1010 464"/><circle cx="1192" cy="400" r="90"/><path d="M1282 310 V490"/><circle cx="1464" cy="400" r="90"/><path d="M1554 150 V490"/><circle class="wm-accent" cx="1736" cy="400" r="90"/><path d="M1918 310 L2078 490 M2078 310 L1918 490"/></g></svg></a>
+  </div>
   <div class="wrap row">
     <p>&copy; 2026 Ocadox. Built on <a href="https://ollama.com">Ollama</a>.</p>
     <nav aria-label="Footer">
